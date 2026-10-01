@@ -223,8 +223,8 @@ textarea{resize:vertical;min-height:80px}
    1. CONFIGURAÇÃO — SUBSTITUA PELOS SEUS VALORES DO SUPABASE
    Painel Supabase → Settings → API
    ========================================================================= */
-const SUPABASE_URL = '<<< https://vieifctbejcebxkcvqii.supabase.co >>>';        // ex.: https://abcd.supabase.co
-const SUPABASE_ANON_KEY = '<<< eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZpZWlmY3RiZWpjZWJ4a2N2cWlpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTA4NjY4NDcsImV4cCI6MjEwNjQ0Mjg0N30.ZaNe3ObYqjO8VyQBQj75sk_xCYq8-Hinzui2ENPDp0U>>>'; // a chave "anon public"
+const SUPABASE_URL = 'https://vieifctbejcebxkcvqii.supabase.co';        // ex.: https://abcd.supabase.co
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZpZWlmY3RiZWpjZWJ4a2N2cWlpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTA4NjY4NDcsImV4cCI6MjEwNjQ0Mjg0N30.ZaNe3ObYqjO8VyQBQj75sk_xCYq8-Hinzui2ENPDp0U'; // a chave "anon public"
 
 if (SUPABASE_URL.includes('<<<') || SUPABASE_ANON_KEY.includes('<<<')) {
   document.getElementById('boot').innerHTML =
