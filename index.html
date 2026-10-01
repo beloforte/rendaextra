@@ -43,6 +43,32 @@ button,input,select,textarea{font:inherit;color:inherit}
 .auth-msg.err{display:block;background:#fdeaea;color:#c53b3b}
 .auth-msg.ok {display:block;background:#e4f6ee;color:#137a52}
 
+/* ---------- Onboarding ---------- */
+.onb-wrap{position:fixed;inset:0;background:linear-gradient(135deg,#0e3b2c,#0e1a2b 60%,#0b2b46);display:grid;place-items:center;padding:24px;z-index:400;overflow-y:auto}
+.onb-card{background:#fff;border-radius:20px;padding:36px 32px 22px;width:100%;max-width:540px;box-shadow:0 30px 80px rgba(0,0,0,.45);animation:pop .22s ease}
+.onb-progress{display:flex;gap:8px;justify-content:center;margin-bottom:30px}
+.onb-dot{width:28px;height:5px;border-radius:20px;background:#e3e9f2;transition:.3s}
+.onb-dot.done{background:#1D9D6C}
+.onb-dot.active{background:linear-gradient(90deg,#1D9D6C,#28A7F8);width:44px}
+.onb-ico{width:64px;height:64px;border-radius:16px;background:linear-gradient(135deg,#1D9D6C,#28A7F8);display:grid;place-items:center;font-size:30px;margin-bottom:20px}
+.onb-card h2{font-size:24px;font-weight:800;letter-spacing:-.5px;margin-bottom:8px;line-height:1.2}
+.onb-card .lead{color:var(--muted);font-size:14.5px;margin-bottom:22px;line-height:1.55}
+.onb-actions{display:flex;gap:10px;margin-top:26px}
+.onb-actions .btn{flex:1;justify-content:center;padding:12px;font-size:14.5px}
+.onb-skip{background:none;border:0;color:var(--muted);font-size:13px;cursor:pointer;margin-top:14px;width:100%;padding:8px;font-weight:600;text-decoration:underline}
+.onb-skip:hover{color:var(--ink)}
+.onb-preview{margin-top:22px;padding-top:18px;border-top:1px solid var(--line)}
+.onb-preview h4{font-size:11.5px;font-weight:800;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);margin-bottom:12px}
+.onb-mini{display:flex;align-items:center;gap:11px;padding:8px 0;border-bottom:1px dashed var(--line)}
+.onb-mini:last-child{border:0}
+.onb-mini .n{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;font-weight:800;font-size:12px;border:2px solid;flex:0 0 38px}
+.onb-mini .t{flex:1;font-size:13.5px;font-weight:700;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.onb-mini .s{font-size:11.5px;color:var(--muted)}
+
+/* ---------- Skeleton ---------- */
+.sk{background:linear-gradient(90deg,#eef2f8 25%,#e0e7f0 50%,#eef2f8 75%);background-size:200% 100%;animation:sk 1.4s ease-in-out infinite;border-radius:8px}
+@keyframes sk{0%{background-position:200% 0}100%{background-position:-200% 0}}
+
 /* ---------- Sidebar ---------- */
 .sidebar{width:252px;flex:0 0 252px;background:#0e1a2b;padding:22px 14px;display:flex;flex-direction:column;gap:4px;position:sticky;top:0;height:100vh;overflow-y:auto}
 .brand{display:flex;align-items:center;gap:11px;padding:4px 8px 20px}
@@ -194,6 +220,8 @@ textarea{resize:vertical;min-height:80px}
 @media(max-width:860px){
   .auth-wrap{grid-template-columns:1fr}
   .auth-left{display:none}
+  .onb-card{padding:28px 22px 18px}
+  .onb-card h2{font-size:20px}
   .app{flex-direction:column}
   .sidebar{width:100%;flex:none;height:auto;position:static;flex-direction:row;overflow-x:auto;padding:10px;gap:6px;align-items:center}
   .brand{padding:0 12px 0 4px;flex:0 0 auto}
@@ -221,10 +249,9 @@ textarea{resize:vertical;min-height:80px}
 <script>
 /* =========================================================================
    1. CONFIGURAÇÃO — SUBSTITUA PELOS SEUS VALORES DO SUPABASE
-   Painel Supabase → Settings → API
    ========================================================================= */
-const SUPABASE_URL = 'https://vieifctbejcebxkcvqii.supabase.co';        // ex.: https://abcd.supabase.co
-const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZpZWlmY3RiZWpjZWJ4a2N2cWlpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTA4NjY4NDcsImV4cCI6MjEwNjQ0Mjg0N30.ZaNe3ObYqjO8VyQBQj75sk_xCYq8-Hinzui2ENPDp0U'; // a chave "anon public"
+const SUPABASE_URL = 'https://vieifctbejcebxkcvqii.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZpZWlmY3RiZWpjZWJ4a2N2cWlpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTA4NjY4NDcsImV4cCI6MjEwNjQ0Mjg0N30.ZaNe3ObYqjO8VyQBQj75sk_xCYq8-Hinzui2ENPDp0U';
 
 if (SUPABASE_URL.includes('<<<') || SUPABASE_ANON_KEY.includes('<<<')) {
   document.getElementById('boot').innerHTML =
@@ -241,7 +268,7 @@ const sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
 });
 
 /* =========================================================================
-   2. SEED — 18 ideias iniciais (inseridas no 1º login)
+   2. SEED
    ========================================================================= */
 const SEED_IDEIAS = [
   {titulo:'Marketing de afiliados',categoria:'Marketing digital',segmento:'Marketing digital',descricao:'Divulgar produtos de terceiros e ganhar comissão por venda, usando conteúdo e tráfego.',investimento_min:200,horas_semana:8,habilidades:'vendas, copywriting, tráfego pago',concorrencia:5,mercado:5,retorno_estimado:'Comissões de 20% a 80% por venda'},
@@ -283,7 +310,7 @@ const state = {
   perfil: null,
   ideias: [],
   planos: [],
-  etapas: {},          // { plano_id: [etapas] }
+  etapas: {},
   ui: {
     screen: 'painel',
     ideaId: null,
@@ -291,8 +318,12 @@ const state = {
     tipo: 'todos',
     segmento: 'todos',
     sort: 'nota',
-    planOpen: {},      // { plano_id: true }
-    busy: false
+    planOpen: {},
+    busy: false,
+    // NOVO: onboarding
+    onboarding: false,
+    onbStep: 0,
+    onbData: { investment: null, hours: null, skills: [], experience: '' }
   }
 };
 
@@ -305,11 +336,7 @@ const esc = s => String(s==null?'':s).replace(/[&<>"']/g, c => ({'&':'&amp;','<'
 const money = v => 'R$ ' + Number(v||0).toLocaleString('pt-BR',{minimumFractionDigits:0,maximumFractionDigits:0});
 const todayISO = () => new Date().toISOString().slice(0,10);
 function addDays(iso, n){ const d = new Date(iso+'T12:00:00'); d.setDate(d.getDate()+n); return d.toISOString().slice(0,10); }
-function diffDays(iso){
-  const a = new Date(todayISO()+'T12:00:00');
-  const b = new Date(iso+'T12:00:00');
-  return Math.round((b-a)/86400000);
-}
+function diffDays(iso){ const a = new Date(todayISO()+'T12:00:00'); const b = new Date(iso+'T12:00:00'); return Math.round((b-a)/86400000); }
 const fmtDate = iso => { if(!iso) return '—'; const [y,m,d]=iso.split('-'); return `${d}/${m}/${y}`; };
 const scoreClass = n => n>=75?'s-high':n>=55?'s-mid':n>=40?'s-low':'s-bad';
 
@@ -320,12 +347,12 @@ function toast(msg, kind=''){
   clearTimeout(t._t);
   t._t = setTimeout(()=>t.classList.remove('show'), 2600);
 }
-function normSkills(str){
-  return String(str||'').split(/[,;]/).map(s=>s.trim().toLowerCase()).filter(Boolean).join(', ');
-}
-function skillsArr(str){
-  return String(str||'').split(',').map(s=>s.trim().toLowerCase()).filter(Boolean);
-}
+function normSkills(str){ return String(str||'').split(/[,;]/).map(s=>s.trim().toLowerCase()).filter(Boolean).join(', '); }
+function skillsArr(str){ return String(str||'').split(',').map(s=>s.trim().toLowerCase()).filter(Boolean); }
+
+// NOVO: marcadores de onboarding concluído (por usuário)
+function onboardingDone(){ try{ return localStorage.getItem('radar_onb_'+state.user.id)==='1'; }catch(e){ return false; } }
+function markOnboardingDone(){ try{ localStorage.setItem('radar_onb_'+state.user.id,'1'); }catch(e){} }
 
 /* =========================================================================
    5. AUTENTICAÇÃO
@@ -347,10 +374,7 @@ function renderAuth(){
   $('#root').innerHTML = `
     <div class="auth-wrap">
       <div class="auth-left">
-        <div class="auth-brand">
-          <div class="logo">R</div>
-          <div><h1>Radar de Renda Extra</h1></div>
-        </div>
+        <div class="auth-brand"><div class="logo">R</div><div><h1>Radar de Renda Extra</h1></div></div>
         <div>
           <h2>Encontre a renda extra certa para você e leve até o fim.</h2>
           <div class="auth-feats">
@@ -369,10 +393,7 @@ function renderAuth(){
           <input class="input" id="auth-pass" type="password" placeholder="Senha (mín. 6 caracteres)" autocomplete="current-password">
           <button class="btn btn-primary" id="auth-go" style="width:100%;justify-content:center;margin-top:6px">Entrar</button>
           <div class="auth-msg" id="auth-msg"></div>
-          <div class="auth-switch">
-            <span id="auth-switch-txt">Ainda não tem conta?</span>
-            <button id="auth-switch-btn" type="button">Criar conta</button>
-          </div>
+          <div class="auth-switch"><span id="auth-switch-txt">Ainda não tem conta?</span> <button id="auth-switch-btn" type="button">Criar conta</button></div>
         </div>
       </div>
     </div>`;
@@ -417,9 +438,7 @@ function renderAuth(){
         if(error) throw error;
         if(!data.session){
           showMsg('Conta criada. Confirme seu e-mail e depois faça login.', 'ok');
-          setBusy(false);
-          setMode('login');
-          return;
+          setBusy(false); setMode('login'); return;
         }
       }
     } catch(err){
@@ -464,8 +483,6 @@ async function loadAll(){
   state.ideias = ideiasR.data || [];
   state.planos = planosR.data || [];
   state.etapas = {};
-
-  // agrupa etapas por plano
   const planoIds = new Set(state.planos.map(p=>p.id));
   (etapasR.data||[]).forEach(e=>{
     if(planoIds.has(e.plano_id)){
@@ -496,7 +513,6 @@ async function seedSeVazio(){
   await loadAll();
 }
 
-/* ---------- Perfil ---------- */
 async function salvarPerfil(dados){
   const uid = state.user.id;
   const payload = {
@@ -511,7 +527,6 @@ async function salvarPerfil(dados){
   state.perfil = data;
 }
 
-/* ---------- Ideias ---------- */
 async function criarIdeia(dados){
   const payload = {
     usuario_id: state.user.id,
@@ -567,7 +582,6 @@ async function mudarStatusIdeia(id, novoStatus, motivo){
   const i = state.ideias.findIndex(x=>x.id===id);
   if(i>=0) state.ideias[i] = data;
 
-  // Se descartou, cancela plano associado
   if(novoStatus === 'DESCARTADA'){
     const plano = state.planos.find(p=>p.ideia_id===id && (p.status==='ATIVO'||p.status==='PAUSADO'));
     if(plano){
@@ -578,35 +592,26 @@ async function mudarStatusIdeia(id, novoStatus, motivo){
   return data;
 }
 
-/* ---------- Planos ---------- */
 async function criarPlano(ideiaId){
   const uid = state.user.id;
-  // Cria plano
   const { data: plano, error: e1 } = await sb.from('planos')
     .insert({ usuario_id: uid, ideia_id: ideiaId, status: 'ATIVO', inicio: todayISO() })
     .select().single();
   if(e1) throw e1;
 
-  // Cria etapas padrão
   const base = todayISO();
   const etapas = DEFAULT_STEPS.map((t, i) => ({
-    plano_id: plano.id,
-    titulo: t,
-    prazo: addDays(base, DEFAULT_DIAS[i]),
-    ordem: i+1,
-    concluida: false,
-    lembrete: true
+    plano_id: plano.id, titulo: t, prazo: addDays(base, DEFAULT_DIAS[i]),
+    ordem: i+1, concluida: false, lembrete: true
   }));
   const { data: etapasData, error: e2 } = await sb.from('etapas').insert(etapas).select();
   if(e2) throw e2;
 
-  // Atualiza status da ideia para EM_EXECUCAO
   const { data: ideiaUpd, error: e3 } = await sb.from('ideias')
     .update({ status: 'EM_EXECUCAO' })
     .eq('id', ideiaId).eq('usuario_id', uid).select().single();
   if(e3) throw e3;
 
-  // Atualiza estado local
   state.planos.push(plano);
   state.etapas[plano.id] = etapasData;
   const i = state.ideias.findIndex(x=>x.id===ideiaId);
@@ -623,12 +628,10 @@ async function mudarStatusPlano(planoId, novoStatus){
   const p = state.planos.find(x=>x.id===planoId);
   if(p) p.status = data.status;
 
-  // Propaga para a ideia
   const novoStatusIdeia =
     novoStatus === 'CONCLUIDO' ? 'CONCLUIDA' :
     novoStatus === 'CANCELADO' ? 'NOVA' :
-    novoStatus === 'PAUSADO' ? 'EM_ANALISE' :
-    'EM_EXECUCAO';
+    novoStatus === 'PAUSADO' ? 'EM_ANALISE' : 'EM_EXECUCAO';
 
   if(p){
     const { data: ideiaUpd } = await sb.from('ideias')
@@ -637,8 +640,6 @@ async function mudarStatusPlano(planoId, novoStatus){
     const i = state.ideias.findIndex(x=>x.id===p.ideia_id);
     if(i>=0 && ideiaUpd) state.ideias[i] = ideiaUpd;
   }
-
-  // Se concluir plano, marca todas as etapas como feitas
   if(novoStatus === 'CONCLUIDO'){
     await sb.from('etapas').update({ concluida: true }).eq('plano_id', planoId);
     (state.etapas[planoId]||[]).forEach(e=>e.concluida = true);
@@ -652,7 +653,6 @@ async function excluirPlano(planoId){
   if(error) throw error;
   state.planos = state.planos.filter(x=>x.id!==planoId);
   delete state.etapas[planoId];
-  // Volta status da ideia para NOVA se não tiver outro plano ativo
   const outro = state.planos.find(x=>x.ideia_id===p.ideia_id && (x.status==='ATIVO'||x.status==='PAUSADO'));
   if(!outro){
     const { data: ideiaUpd } = await sb.from('ideias')
@@ -662,17 +662,12 @@ async function excluirPlano(planoId){
   }
 }
 
-/* ---------- Etapas ---------- */
 async function adicionarEtapa(planoId, titulo, prazo){
   const atuais = state.etapas[planoId] || [];
   const ordem = atuais.length ? Math.max(...atuais.map(e=>e.ordem)) + 1 : 1;
   const { data, error } = await sb.from('etapas').insert({
-    plano_id: planoId,
-    titulo: titulo.trim(),
-    prazo: prazo || null,
-    ordem,
-    concluida: false,
-    lembrete: true
+    plano_id: planoId, titulo: titulo.trim(), prazo: prazo || null,
+    ordem, concluida: false, lembrete: true
   }).select().single();
   if(error) throw error;
   (state.etapas[planoId] = state.etapas[planoId] || []).push(data);
@@ -698,10 +693,10 @@ async function removerEtapa(id){
 }
 
 /* =========================================================================
-   7. CÁLCULO DA NOTA (fonte única de verdade)
+   7. CÁLCULO DA NOTA — pode receber override de perfil (usado no onboarding)
    ========================================================================= */
-function perfilVals(){
-  const p = state.perfil || {};
+function perfilVals(override){
+  const p = override || state.perfil || {};
   const inv = (p.investimento === null || p.investimento === undefined || p.investimento === '') ? 1000 : Number(p.investimento);
   const hrs = (p.horas_semana  === null || p.horas_semana  === undefined || p.horas_semana  === '') ? 10   : Number(p.horas_semana);
   return {
@@ -711,58 +706,35 @@ function perfilVals(){
                   (p.horas_semana ===null||p.horas_semana ===undefined||p.horas_semana ==='')
   };
 }
+function segmentosDescartados(){ return new Set(state.ideias.filter(i=>i.status==='DESCARTADA').map(i=>i.segmento.toLowerCase())); }
 
-function segmentosDescartados(){
-  return new Set(state.ideias.filter(i=>i.status==='DESCARTADA').map(i=>i.segmento.toLowerCase()));
-}
-
-function calcularNota(ideia){
-  const { inv, hrs, skills } = perfilVals();
+function calcularNota(ideia, overridePerfil){
+  const { inv, hrs, skills } = perfilVals(overridePerfil);
   const segDesc = segmentosDescartados();
-
-  // Investimento — 30
   const invMin = Number(ideia.investimento_min)||0;
   const sInv = invMin <= 0 ? 30 : 30 * Math.min(1, inv / invMin);
-
-  // Tempo — 20
   const hSem = Math.max(1, Number(ideia.horas_semana)||1);
   const sTime = 20 * Math.min(1, hrs / hSem);
-
-  // Habilidades — 20
   const reqs = skillsArr(ideia.habilidades);
   let sSkill, faltando = [];
   if(reqs.length === 0){ sSkill = 20; }
-  else {
-    faltando = reqs.filter(r => !skills.includes(r));
-    sSkill = 20 * ((reqs.length - faltando.length) / reqs.length);
-  }
-
-  // Concorrência — 15 (menor = melhor)
+  else { faltando = reqs.filter(r => !skills.includes(r)); sSkill = 20 * ((reqs.length - faltando.length) / reqs.length); }
   const comp = Math.min(5, Math.max(1, Number(ideia.concorrencia)||3));
   const sComp = 15 * (5 - comp) / 4;
-
-  // Mercado — 15
   const mkt = Math.min(5, Math.max(1, Number(ideia.mercado)||3));
   const sMarket = 15 * (mkt - 1) / 4;
-
   let total = sInv + sTime + sSkill + sComp + sMarket;
   const penalizado = ideia.status !== 'DESCARTADA' && segDesc.has((ideia.segmento||'').toLowerCase());
   if(penalizado) total -= 20;
   total = Math.max(0, Math.min(100, Math.round(total)));
-
   return {
     total, penalizado,
     partes: [
-      {label:'Investimento', max:30, pts:sInv,
-       nota:`Você tem ${money(inv)} · a ideia pede ${invMin>0?money(invMin):'nada'}`},
-      {label:'Tempo livre', max:20, pts:sTime,
-       nota:`Você tem ${hrs}h/semana · a ideia pede ${hSem}h`},
-      {label:'Habilidades', max:20, pts:sSkill,
-       nota: reqs.length ? (faltando.length ? 'Faltam: '+faltando.join(', ') : 'Você tem todas') : 'Sem exigências específicas'},
-      {label:'Concorrência', max:15, pts:sComp,
-       nota:`Nível ${comp}/5 ${comp>=4?'(alta)':comp<=2?'(baixa)':'(média)'}`},
-      {label:'Tamanho do mercado', max:15, pts:sMarket,
-       nota:`Nível ${mkt}/5 ${mkt>=4?'(amplo)':mkt<=2?'(nicho)':'(médio)'}`}
+      {label:'Investimento', max:30, pts:sInv, nota:`Você tem ${money(inv)} · a ideia pede ${invMin>0?money(invMin):'nada'}`},
+      {label:'Tempo livre', max:20, pts:sTime, nota:`Você tem ${hrs}h/semana · a ideia pede ${hSem}h`},
+      {label:'Habilidades', max:20, pts:sSkill, nota: reqs.length ? (faltando.length ? 'Faltam: '+faltando.join(', ') : 'Você tem todas') : 'Sem exigências específicas'},
+      {label:'Concorrência', max:15, pts:sComp, nota:`Nível ${comp}/5 ${comp>=4?'(alta)':comp<=2?'(baixa)':'(média)'}`},
+      {label:'Tamanho do mercado', max:15, pts:sMarket, nota:`Nível ${mkt}/5 ${mkt>=4?'(amplo)':mkt<=2?'(nicho)':'(médio)'}`}
     ]
   };
 }
@@ -771,8 +743,7 @@ function calcularNota(ideia){
    8. DADOS DERIVADOS
    ========================================================================= */
 function ideiasOrdenadas(){
-  return state.ideias
-    .filter(i=>i.status!=='DESCARTADA')
+  return state.ideias.filter(i=>i.status!=='DESCARTADA')
     .map(i=>({idea:i, sc:calcularNota(i)}))
     .sort((a,b)=>b.sc.total - a.sc.total);
 }
@@ -813,10 +784,7 @@ function renderNav(){
   const email = state.user?.email || '';
   const letra = (email[0]||'?').toUpperCase();
   return `
-    <div class="brand">
-      <div class="logo">R</div>
-      <div><h1>Radar de Renda</h1><span>Extra</span></div>
-    </div>
+    <div class="brand"><div class="logo">R</div><div><h1>Radar de Renda</h1><span>Extra</span></div></div>
     ${screens.map(s=>{
       const active = (state.ui.screen===s.id || (state.ui.screen==='detalhe' && s.id==='banco')) ? ' active' : '';
       let badge = '';
@@ -835,11 +803,136 @@ function renderNav(){
 }
 
 /* =========================================================================
-   10. RENDER — TELAS
+   10. RENDER — SKELETON (NOVO)
    ========================================================================= */
-function emptyHTML(msg){
-  return `<div class="empty"><div class="big">🗒️</div><p>${esc(msg)}</p></div>`;
+function renderSkeleton(){
+  $('#root').innerHTML = `
+    <div class="app">
+      <aside class="sidebar">${renderNav()}</aside>
+      <main class="main"><div class="wrap">
+        <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:22px;flex-wrap:wrap;gap:16px">
+          <div>
+            <div class="sk" style="height:28px;width:160px;margin-bottom:8px"></div>
+            <div class="sk" style="height:14px;width:260px"></div>
+          </div>
+          <div class="sk" style="height:40px;width:180px;border-radius:10px"></div>
+        </div>
+        <div class="stats">
+          ${Array(4).fill(0).map(()=>`
+            <div class="stat">
+              <div class="sk" style="height:12px;width:70%;margin-bottom:10px"></div>
+              <div class="sk" style="height:28px;width:40%;margin-bottom:8px"></div>
+              <div class="sk" style="height:11px;width:55%"></div>
+            </div>`).join('')}
+        </div>
+        <div class="sk" style="height:16px;width:220px;margin:26px 0 12px"></div>
+        <div class="card">
+          ${Array(3).fill(0).map(()=>`
+            <div style="display:flex;gap:16px;padding:15px 18px;border-bottom:1px solid var(--line);align-items:center">
+              <div class="sk" style="width:60px;height:60px;border-radius:50%;flex:0 0 60px"></div>
+              <div style="flex:1;min-width:0">
+                <div class="sk" style="height:15px;width:55%;margin-bottom:9px"></div>
+                <div class="sk" style="height:12px;width:85%;margin-bottom:9px"></div>
+                <div class="sk" style="height:11px;width:30%"></div>
+              </div>
+            </div>`).join('')}
+        </div>
+      </div></main>
+    </div>`;
 }
+
+/* =========================================================================
+   11. RENDER — ONBOARDING (NOVO)
+   ========================================================================= */
+function viewOnboarding(){
+  const d = state.ui.onbData;
+  const step = state.ui.onbStep;
+  const total = 3;
+
+  // Progress dots
+  const dots = Array(total).fill(0).map((_,i)=>{
+    const cls = i < step ? 'done' : i === step ? 'active' : '';
+    return `<div class="onb-dot ${cls}"></div>`;
+  }).join('');
+
+  let body = '';
+  if(step === 0){
+    body = `
+      <div class="onb-ico">💰</div>
+      <h2>Quanto você tem para investir?</h2>
+      <p class="lead">Considere um valor que você pode usar sem afetar suas contas do mês. Se não tiver nada agora, digite 0 — existem ideias que começam do zero.</p>
+      <div class="field">
+        <input class="input" type="number" min="0" step="50" placeholder="Ex.: 500"
+               value="${d.investment ?? ''}" id="onb-inv" style="font-size:18px;padding:14px 16px">
+      </div>`;
+  } else if(step === 1){
+    body = `
+      <div class="onb-ico">⏱️</div>
+      <h2>Quantas horas livres por semana?</h2>
+      <p class="lead">Some o tempo real que você consegue dedicar por semana, sem contar o trabalho e o sono. Seja honesto — isso muda tudo no ranking.</p>
+      <div class="field">
+        <input class="input" type="number" min="1" max="168" step="1" placeholder="Ex.: 10"
+               value="${d.hours ?? ''}" id="onb-hrs" style="font-size:18px;padding:14px 16px">
+      </div>`;
+  } else {
+    // Preview com as top 3 baseado no que foi preenchido
+    const override = {
+      investimento: d.investment === '' ? null : Number(d.investment),
+      horas_semana: d.hours === '' ? null : Number(d.hours),
+      habilidades: (d.skills||[]).join(', ')
+    };
+    const top3 = state.ideias
+      .filter(i=>i.status!=='DESCARTADA')
+      .map(i=>({idea:i, sc:calcularNota(i, override)}))
+      .sort((a,b)=>b.sc.total - a.sc.total)
+      .slice(0,3);
+
+    body = `
+      <div class="onb-ico">🎯</div>
+      <h2>O que você já sabe fazer?</h2>
+      <p class="lead">Marque suas habilidades. Sem problema se não tiver certeza — você pode mudar isso depois em "Meu perfil".</p>
+      <div class="chips" id="onb-skills" style="margin-bottom:14px">
+        ${SKILL_LIST.map(s=>{
+          const on = (d.skills||[]).includes(s.toLowerCase());
+          return `<button type="button" class="chip ${on?'on':''}" data-action="onb-skill" data-skill="${esc(s)}">${esc(s)}</button>`;
+        }).join('')}
+      </div>
+      ${top3.length ? `
+      <div class="onb-preview">
+        <h4>🏆 Já com esse perfil, suas top 3 ideias são:</h4>
+        ${top3.map(r=>`
+          <div class="onb-mini">
+            <div class="n ${scoreClass(r.sc.total)}">${r.sc.total}</div>
+            <div class="t">
+              ${esc(r.idea.titulo)}
+              <div class="s">${esc(r.idea.segmento)}</div>
+            </div>
+          </div>`).join('')}
+      </div>` : ''}`;
+  }
+
+  const isLast = step === total - 1;
+  const nextLabel = isLast ? '🚀 Começar agora' : 'Próximo';
+
+  return `
+  <div class="onb-wrap">
+    <div class="onb-card">
+      <div class="onb-progress">${dots}</div>
+      ${body}
+      <div class="onb-actions">
+        ${step > 0 ? `<button class="btn btn-ghost" data-action="onb-back">Voltar</button>` : ''}
+        <button class="btn btn-primary" data-action="onb-next" style="flex:${step>0?'1':'1'}">${nextLabel}</button>
+      </div>
+      <button class="onb-skip" data-action="onb-skip">Pular e usar valores padrão</button>
+    </div>
+  </div>`;
+}
+
+/* =========================================================================
+   12. RENDER — TELAS PRINCIPAIS
+   ========================================================================= */
+function emptyHTML(msg){ return `<div class="empty"><div class="big">🗒️</div><p>${esc(msg)}</p></div>`; }
+
 function ideaRowHTML(r){
   const i = r.idea, sc = r.sc;
   const statusTagHtml =
@@ -926,17 +1019,14 @@ function viewBanco(){
     list = list.filter(i => (i.titulo+' '+i.descricao+' '+i.segmento+' '+i.categoria).toLowerCase().includes(q));
   }
   if(tipo && tipo!=='todos'){
-    // heurística: digital x físico por segmento
     const digitais = ['Marketing digital','Criação de conteúdo','Serviços digitais','E-commerce'];
     list = list.filter(i => tipo==='digital' ? digitais.includes(i.segmento) : !digitais.includes(i.segmento));
   }
   if(segmento && segmento!=='todos') list = list.filter(i=>i.segmento===segmento);
-
   let rows = list.map(i=>({idea:i, sc:calcularNota(i)}));
   if(sort==='nota') rows.sort((a,b)=>b.sc.total-a.sc.total);
   else if(sort==='nome') rows.sort((a,b)=>a.idea.titulo.localeCompare(b.idea.titulo,'pt-BR'));
   else if(sort==='invest') rows.sort((a,b)=>a.idea.investimento_min-b.idea.investimento_min);
-
   const segments = [...new Set(state.ideias.filter(i=>i.status!=='DESCARTADA').map(i=>i.segmento))].sort();
 
   return `
@@ -944,7 +1034,6 @@ function viewBanco(){
     <div><h2>Banco de ideias</h2><p>${rows.length} oportunidade(s) · ordenadas por nota</p></div>
     <button class="btn btn-primary" data-action="nova-ideia">+ Nova ideia</button>
   </div>
-
   <div class="filters">
     <input class="input" placeholder="🔎 Buscar por título, descrição ou segmento..." value="${esc(query)}" data-action="f-query">
     <select data-action="f-tipo">
@@ -962,7 +1051,6 @@ function viewBanco(){
       <option value="invest"${sort==='invest'?' selected':''}>Menor investimento</option>
     </select>
   </div>
-
   <div class="card">
     ${rows.length ? rows.map(ideaRowHTML).join('') : emptyHTML('Nenhuma ideia encontrada com esses filtros.')}
   </div>`;
@@ -1067,13 +1155,11 @@ function viewPerfil(){
     <div class="grid2">
       <div class="field">
         <label>Investimento inicial disponível <span class="hint">em R$</span></label>
-        <input class="input" type="number" min="0" step="50" placeholder="1000"
-               value="${p.investimento ?? ''}" id="p-invest">
+        <input class="input" type="number" min="0" step="50" placeholder="1000" value="${p.investimento ?? ''}" id="p-invest">
       </div>
       <div class="field">
         <label>Tempo livre por semana <span class="hint">em horas</span></label>
-        <input class="input" type="number" min="1" max="168" step="1" placeholder="10"
-               value="${p.horas_semana ?? ''}" id="p-hours">
+        <input class="input" type="number" min="1" max="168" step="1" placeholder="10" value="${p.horas_semana ?? ''}" id="p-hours">
       </div>
     </div>
 
@@ -1110,17 +1196,14 @@ function viewExecucao(){
     const order = {ATIVO:0, PAUSADO:1, CONCLUIDO:2, CANCELADO:3};
     return (order[a.status]??9)-(order[b.status]??9) || b.id - a.id;
   });
-
   return `
   <div class="page-head">
     <div><h2>Execução</h2><p>Cada ideia aprovada vira um plano com etapas, prazos e lembretes.</p></div>
   </div>
-
   ${plans.length ? plans.map(planHTML).join('') : `
-    <div class="card">${emptyHTML('Nenhum plano ainda. Escolha uma ideia no banco e clique em “Aprovar para execução”.')}
+    <div class="card">${emptyHTML('Nenhum plano ainda. Escolha uma ideia no banco e clique em "Aprovar para execução".')}
       <div style="text-align:center;padding-bottom:24px"><button class="btn btn-primary" data-action="nav" data-screen="banco">Ir para o banco de ideias</button></div>
-    </div>`}
-  `;
+    </div>`}`;
 }
 
 function planHTML(p){
@@ -1132,7 +1215,6 @@ function planHTML(p){
   const badge = p.status==='PAUSADO' ? '<span class="tag analise">Pausado</span>' :
                 p.status==='CONCLUIDO' ? '<span class="tag ok">Concluído</span>' :
                 p.status==='CANCELADO' ? '<span class="tag warn">Cancelado</span>' : '';
-
   return `
   <div class="card plan">
     <div class="plan-head" data-action="toggle-plan" data-id="${p.id}">
@@ -1146,17 +1228,14 @@ function planHTML(p){
       </div>
       <span style="font-size:13px;color:var(--muted)">${abertas?'▾':'▸'}</span>
     </div>
-
     ${abertas ? `
     <div class="plan-body">
       ${etapas.length ? etapas.map(e=>stepHTML(p, e)).join('') : '<p style="color:var(--muted);font-size:13.5px;padding:8px 0">Sem etapas ainda.</p>'}
-
       <div style="display:flex;gap:9px;margin-top:14px;flex-wrap:wrap">
         <input class="input" placeholder="Nova etapa..." id="new-step-${p.id}" style="flex:1;min-width:180px">
         <input class="input" type="date" id="new-due-${p.id}" style="width:150px;flex:0 0 150px">
         <button class="btn btn-ghost btn-sm" data-action="add-step" data-plan="${p.id}">+ Adicionar</button>
       </div>
-
       <div style="display:flex;gap:9px;margin-top:16px;padding-top:14px;border-top:1px solid var(--line);flex-wrap:wrap">
         ${p.status==='ATIVO'   ? `<button class="btn btn-ghost btn-sm" data-action="pausar" data-plan="${p.id}">⏸ Pausar plano</button>` : ''}
         ${p.status==='PAUSADO' ? `<button class="btn btn-ghost btn-sm" data-action="reativar" data-plan="${p.id}">▶ Retomar plano</button>` : ''}
@@ -1181,8 +1260,7 @@ function stepHTML(p, e){
     <input class="step-title" value="${esc(e.titulo)}" data-action="edit-title" data-step="${e.id}">
     ${badge}
     <input type="date" value="${e.prazo||''}" data-action="edit-due" data-step="${e.id}">
-    <button class="ico-btn ${e.lembrete?'on':''}" title="${e.lembrete?'Lembrete ligado':'Lembrete desligado'}"
-            data-action="toggle-rem" data-step="${e.id}">${e.lembrete?'🔔':'🔕'}</button>
+    <button class="ico-btn ${e.lembrete?'on':''}" title="${e.lembrete?'Lembrete ligado':'Lembrete desligado'}" data-action="toggle-rem" data-step="${e.id}">${e.lembrete?'🔔':'🔕'}</button>
     <button class="ico-btn" title="Remover etapa" data-action="del-step" data-step="${e.id}">✕</button>
   </div>`;
 }
@@ -1190,12 +1268,10 @@ function stepHTML(p, e){
 function viewDescartadas(){
   const list = state.ideias.filter(i=>i.status==='DESCARTADA')
     .sort((a,b)=>(b.descartada_em||'').localeCompare(a.descartada_em||''));
-
   return `
   <div class="page-head">
     <div><h2>Histórico de descartadas</h2><p>Ideias do mesmo segmento destas passam a receber 20 pontos a menos na nota.</p></div>
   </div>
-
   ${list.length ? `
   <div class="card">
     ${list.map(i=>{
@@ -1217,22 +1293,25 @@ function viewDescartadas(){
         <button class="btn btn-ghost btn-sm" data-action="restaurar" data-id="${i.id}">↩ Trazer de volta</button>
       </div>`;
     }).join('')}
-  </div>` : `<div class="card">${emptyHTML('Nenhuma ideia descartada. Quando descartar uma, ela aparece aqui com o motivo.')}</div>`}
-  `;
+  </div>` : `<div class="card">${emptyHTML('Nenhuma ideia descartada. Quando descartar uma, ela aparece aqui com o motivo.')}</div>`}`;
 }
 
 /* =========================================================================
-   11. RENDER PRINCIPAL
+   13. RENDER PRINCIPAL
    ========================================================================= */
 function render(){
   if(!state.user) return;
+  // NOVO: onboarding primeiro
+  if(state.ui.onboarding){
+    $('#root').innerHTML = viewOnboarding();
+    return;
+  }
   const shell = `
     <div class="app">
       <aside class="sidebar" id="nav">${renderNav()}</aside>
       <main class="main"><div class="wrap" id="view"></div></main>
     </div>`;
   $('#root').innerHTML = shell;
-
   const v = $('#view');
   switch(state.ui.screen){
     case 'painel':      v.innerHTML = viewPainel(); break;
@@ -1253,21 +1332,16 @@ function go(screen, ideaId){
 }
 
 /* =========================================================================
-   12. MODAIS
+   14. MODAIS
    ========================================================================= */
-function openModal(html){
-  $('#modal-root').innerHTML = `<div class="modal-bg" data-bg><div class="modal" data-modal>${html}</div></div>`;
-}
+function openModal(html){ $('#modal-root').innerHTML = `<div class="modal-bg" data-bg><div class="modal" data-modal>${html}</div></div>`; }
 function closeModal(){ $('#modal-root').innerHTML = ''; }
 
 function modalDescarte(id){
   const idea = state.ideias.find(i=>i.id===id);
   if(!idea) return;
   openModal(`
-    <div class="modal-head">
-      <h3>Descartar ideia</h3>
-      <button class="x" data-action="close-modal">✕</button>
-    </div>
+    <div class="modal-head"><h3>Descartar ideia</h3><button class="x" data-action="close-modal">✕</button></div>
     <div class="modal-body">
       <p style="font-size:14px;color:var(--muted);margin-bottom:16px">
         <b style="color:var(--ink)">${esc(idea.titulo)}</b> vai para o histórico. Ideias futuras do segmento
@@ -1282,8 +1356,7 @@ function modalDescarte(id){
     <div class="modal-foot">
       <button class="btn btn-ghost" data-action="close-modal">Cancelar</button>
       <button class="btn btn-danger" data-action="confirmar-descarte" data-id="${id}">Descartar</button>
-    </div>
-  `);
+    </div>`);
   setTimeout(()=>$('#desc-reason')?.focus(), 50);
 }
 
@@ -1293,73 +1366,35 @@ function modalIdeia(id){
   const segments = [...new Set(state.ideias.map(x=>x.segmento))].sort();
   const skills = skillsArr(i.habilidades);
   const skillList = [...new Set([...SKILL_LIST.map(s=>s.toLowerCase()), ...skills])];
-
   openModal(`
-    <div class="modal-head">
-      <h3>${editing ? 'Editar ideia' : 'Nova ideia'}</h3>
-      <button class="x" data-action="close-modal">✕</button>
-    </div>
+    <div class="modal-head"><h3>${editing ? 'Editar ideia' : 'Nova ideia'}</h3><button class="x" data-action="close-modal">✕</button></div>
     <div class="modal-body">
-      <div class="field">
-        <label>Título</label>
-        <input class="input" id="fi-titulo" value="${esc(i.titulo)}" placeholder="Ex.: Aulas de reforço escolar online">
+      <div class="field"><label>Título</label><input class="input" id="fi-titulo" value="${esc(i.titulo)}" placeholder="Ex.: Aulas de reforço escolar online"></div>
+      <div class="grid2">
+        <div class="field"><label>Categoria</label><input class="input" id="fi-categoria" value="${esc(i.categoria)}" placeholder="Ex.: Serviços digitais"></div>
+        <div class="field"><label>Segmento</label><input class="input" id="fi-segmento" list="seg-list" value="${esc(i.segmento)}" placeholder="Ex.: Educação"><datalist id="seg-list">${segments.map(s=>`<option value="${esc(s)}">`).join('')}</datalist></div>
+      </div>
+      <div class="field"><label>Descrição curta</label><textarea id="fi-desc" placeholder="Como funciona e para quem é?">${esc(i.descricao)}</textarea></div>
+      <div class="grid2">
+        <div class="field"><label>Investimento inicial <span class="hint">R$</span></label><input class="input" type="number" min="0" step="50" id="fi-inv" value="${i.investimento_min||0}"></div>
+        <div class="field"><label>Horas por semana</label><input class="input" type="number" min="1" max="168" step="1" id="fi-hours" value="${i.horas_semana||8}"></div>
       </div>
       <div class="grid2">
-        <div class="field">
-          <label>Categoria</label>
-          <input class="input" id="fi-categoria" value="${esc(i.categoria)}" placeholder="Ex.: Serviços digitais">
-        </div>
-        <div class="field">
-          <label>Segmento</label>
-          <input class="input" id="fi-segmento" list="seg-list" value="${esc(i.segmento)}" placeholder="Ex.: Educação">
-          <datalist id="seg-list">${segments.map(s=>`<option value="${esc(s)}">`).join('')}</datalist>
-        </div>
+        <div class="field"><label>Concorrência <span class="hint">1=baixa, 5=alta</span></label><select id="fi-comp">${[1,2,3,4,5].map(n=>`<option value="${n}"${i.concorrencia===n?' selected':''}>${n}</option>`).join('')}</select></div>
+        <div class="field"><label>Mercado <span class="hint">1=nicho, 5=amplo</span></label><select id="fi-market">${[1,2,3,4,5].map(n=>`<option value="${n}"${i.mercado===n?' selected':''}>${n}</option>`).join('')}</select></div>
       </div>
-      <div class="field">
-        <label>Descrição curta</label>
-        <textarea id="fi-desc" placeholder="Como funciona e para quem é?">${esc(i.descricao)}</textarea>
-      </div>
-      <div class="grid2">
-        <div class="field">
-          <label>Investimento inicial <span class="hint">R$</span></label>
-          <input class="input" type="number" min="0" step="50" id="fi-inv" value="${i.investimento_min||0}">
-        </div>
-        <div class="field">
-          <label>Horas por semana</label>
-          <input class="input" type="number" min="1" max="168" step="1" id="fi-hours" value="${i.horas_semana||8}">
-        </div>
-      </div>
-      <div class="grid2">
-        <div class="field">
-          <label>Concorrência <span class="hint">1=baixa, 5=alta</span></label>
-          <select id="fi-comp">${[1,2,3,4,5].map(n=>`<option value="${n}"${i.concorrencia===n?' selected':''}>${n}</option>`).join('')}</select>
-        </div>
-        <div class="field">
-          <label>Mercado <span class="hint">1=nicho, 5=amplo</span></label>
-          <select id="fi-market">${[1,2,3,4,5].map(n=>`<option value="${n}"${i.mercado===n?' selected':''}>${n}</option>`).join('')}</select>
-        </div>
-      </div>
-      <div class="field">
-        <label>Retorno estimado <span class="hint">opcional</span></label>
-        <input class="input" id="fi-retorno" value="${esc(i.retorno_estimado)}" placeholder="Ex.: R$ 500 a R$ 2.000 por mês">
-      </div>
-      <div class="field">
-        <label>Habilidades necessárias</label>
-        <div class="chips" id="fi-skills">
-          ${skillList.map(s=>`<button type="button" class="chip ${skills.includes(s)?'on':''}" data-action="fi-toggle-skill" data-skill="${esc(s)}">${esc(s)}</button>`).join('')}
-        </div>
-      </div>
+      <div class="field"><label>Retorno estimado <span class="hint">opcional</span></label><input class="input" id="fi-retorno" value="${esc(i.retorno_estimado)}" placeholder="Ex.: R$ 500 a R$ 2.000 por mês"></div>
+      <div class="field"><label>Habilidades necessárias</label><div class="chips" id="fi-skills">${skillList.map(s=>`<button type="button" class="chip ${skills.includes(s)?'on':''}" data-action="fi-toggle-skill" data-skill="${esc(s)}">${esc(s)}</button>`).join('')}</div></div>
     </div>
     <div class="modal-foot">
       <button class="btn btn-ghost" data-action="close-modal">Cancelar</button>
       <button class="btn btn-primary" data-action="salvar-ideia" data-id="${editing?editing.id:''}">${editing?'Salvar alterações':'Criar ideia'}</button>
-    </div>
-  `);
+    </div>`);
   setTimeout(()=>$('#fi-titulo')?.focus(), 50);
 }
 
 /* =========================================================================
-   13. AÇÕES
+   15. AÇÕES
    ========================================================================= */
 async function aprovarIdeia(id){
   try{
@@ -1367,11 +1402,8 @@ async function aprovarIdeia(id){
     await criarPlano(id);
     toast('Ideia aprovada! Plano criado com 5 etapas.');
     go('execucao');
-  } catch(err){
-    toast('Erro ao aprovar: '+err.message, 'err');
-  } finally {
-    state.ui.busy = false;
-  }
+  } catch(err){ toast('Erro ao aprovar: '+err.message, 'err'); }
+  finally { state.ui.busy = false; }
 }
 
 async function salvarIdeiaDoModal(id){
@@ -1386,7 +1418,7 @@ async function salvarIdeiaDoModal(id){
     descricao: $('#fi-desc').value,
     investimento_min: $('#fi-inv').value,
     horas_semana: $('#fi-hours').value,
-    concorrencia: $('#fi-concorrencia')?.value || $('#fi-comp').value,
+    concorrencia: $('#fi-comp').value,
     mercado: $('#fi-market').value,
     retorno_estimado: $('#fi-retorno').value,
     habilidades: [...$$('#fi-skills .chip.on')].map(b=>b.dataset.skill).join(', ')
@@ -1394,22 +1426,87 @@ async function salvarIdeiaDoModal(id){
   try{
     if(id){ await editarIdeia(id, dados); toast('Ideia atualizada.'); }
     else   { await criarIdeia(dados);       toast('Ideia adicionada.'); }
-    closeModal();
-    render();
+    closeModal(); render();
   } catch(err){ toast(err.message,'err'); }
 }
 
 /* =========================================================================
-   14. EVENTOS GLOBAIS
+   16. AÇÕES — ONBOARDING (NOVO)
+   ========================================================================= */
+function onbSaveFieldsToState(){
+  if(state.ui.onbStep === 0){
+    const el = $('#onb-inv');
+    if(el) state.ui.onbData.investment = el.value === '' ? null : Number(el.value);
+  } else if(state.ui.onbStep === 1){
+    const el = $('#onb-hrs');
+    if(el) state.ui.onbData.hours = el.value === '' ? null : Number(el.value);
+  } else if(state.ui.onbStep === 2){
+    state.ui.onbData.skills = [...$$('#onb-skills .chip.on')].map(b=>b.dataset.skill);
+  }
+}
+
+function onbNext(){
+  onbSaveFieldsToState();
+  const step = state.ui.onbStep;
+  // valida mínima
+  if(step === 0){
+    const v = state.ui.onbData.investment;
+    if(v !== null && (isNaN(v) || v < 0)){ toast('Informe um valor válido.','err'); return; }
+  }
+  if(step === 1){
+    const v = state.ui.onbData.hours;
+    if(v !== null && (isNaN(v) || v <= 0)){ toast('Informe as horas por semana.','err'); return; }
+  }
+  if(step < 2){
+    state.ui.onbStep = step + 1;
+    render();
+    setTimeout(()=>{
+      const el = state.ui.onbStep === 1 ? $('#onb-hrs') : null;
+      if(el) el.focus();
+    }, 60);
+  } else {
+    onbFinish();
+  }
+}
+
+function onbBack(){
+  onbSaveFieldsToState();
+  if(state.ui.onbStep > 0){
+    state.ui.onbStep -= 1;
+    render();
+  }
+}
+
+async function onbFinish(){
+  try{
+    await salvarPerfil({
+      investimento: state.ui.onbData.investment,
+      horas_semana: state.ui.onbData.hours,
+      habilidades: (state.ui.onbData.skills||[]).join(', '),
+      experiencia: state.ui.onbData.experience || ''
+    });
+    markOnboardingDone();
+    state.ui.onboarding = false;
+    state.ui.screen = 'painel';
+    toast('Pronto! Seu radar está calibrado.');
+    render();
+  } catch(err){ toast('Erro ao salvar perfil: '+err.message, 'err'); }
+}
+
+function onbSkip(){
+  markOnboardingDone();
+  state.ui.onboarding = false;
+  state.ui.screen = 'painel';
+  render();
+}
+
+/* =========================================================================
+   17. EVENTOS GLOBAIS
    ========================================================================= */
 document.addEventListener('click', async e => {
-  // Fechar modal pelo fundo
   if(e.target.matches('[data-bg]')){ closeModal(); return; }
-
   const el = e.target.closest('[data-action]');
   if(!el) return;
-  // Se clicou dentro de um modal e não é ação, não propaga
-  const inModal = !!e.target.closest('[data-modal]');
   const a = el.dataset.action;
 
   switch(a){
@@ -1422,8 +1519,17 @@ document.addEventListener('click', async e => {
     case 'close-modal': closeModal(); break;
     case 'fi-toggle-skill': el.classList.toggle('on'); break;
     case 'abrir-descarte': modalDescarte(Number(el.dataset.id)); break;
-
     case 'aprovar': aprovarIdeia(Number(el.dataset.id)); break;
+
+    // NOVO: onboarding
+    case 'onb-next':  onbNext(); break;
+    case 'onb-back':  onbBack(); break;
+    case 'onb-skip':  onbSkip(); break;
+    case 'onb-skill':
+      el.classList.toggle('on');
+      state.ui.onbData.skills = [...$$('#onb-skills .chip.on')].map(b=>b.dataset.skill);
+      render(); // re-renderiza para atualizar a prévia do top 3
+      break;
 
     case 'analise': {
       const idea = state.ideias.find(i=>i.id===Number(el.dataset.id));
@@ -1437,27 +1543,18 @@ document.addEventListener('click', async e => {
       const id = Number(el.dataset.id);
       const motivo = ($('#desc-reason')?.value||'').trim();
       if(!motivo){ toast('Escreva o motivo do descarte.','err'); return; }
-      try{
-        await mudarStatusIdeia(id, 'DESCARTADA', motivo);
-        closeModal(); render(); toast('Ideia descartada e guardada no histórico.');
-      } catch(err){ toast(err.message,'err'); }
+      try{ await mudarStatusIdeia(id, 'DESCARTADA', motivo); closeModal(); render(); toast('Ideia descartada e guardada no histórico.'); }
+      catch(err){ toast(err.message,'err'); }
       break;
     }
 
     case 'restaurar': {
-      try{
-        await mudarStatusIdeia(Number(el.dataset.id), 'NOVA');
-        render(); toast('Ideia trazida de volta ao banco.');
-      } catch(err){ toast(err.message,'err'); }
+      try{ await mudarStatusIdeia(Number(el.dataset.id), 'NOVA'); render(); toast('Ideia trazida de volta ao banco.'); }
+      catch(err){ toast(err.message,'err'); }
       break;
     }
 
-    case 'toggle-plan': {
-      const id = Number(el.dataset.id);
-      state.ui.planOpen[id] = !state.ui.planOpen[id];
-      render();
-      break;
-    }
+    case 'toggle-plan': state.ui.planOpen[Number(el.dataset.id)] = !state.ui.planOpen[Number(el.dataset.id)]; render(); break;
 
     case 'toggle-step': {
       const eid = Number(el.dataset.step);
@@ -1500,11 +1597,8 @@ document.addEventListener('click', async e => {
     case 'concluir': {
       const pid = Number(el.dataset.plan);
       const novo = a==='pausar' ? 'PAUSADO' : a==='reativar' ? 'ATIVO' : 'CONCLUIDO';
-      try{
-        await mudarStatusPlano(pid, novo);
-        render();
-        toast(novo==='PAUSADO'?'Plano pausado.':novo==='ATIVO'?'Plano retomado.':'🏁 Plano concluído!');
-      } catch(err){ toast(err.message,'err'); }
+      try{ await mudarStatusPlano(pid, novo); render(); toast(novo==='PAUSADO'?'Plano pausado.':novo==='ATIVO'?'Plano retomado.':'🏁 Plano concluído!'); }
+      catch(err){ toast(err.message,'err'); }
       break;
     }
 
@@ -1516,17 +1610,14 @@ document.addEventListener('click', async e => {
       break;
     }
 
-    case 'toggle-skill': {
-      el.classList.toggle('on');
-      break;
-    }
+    case 'toggle-skill': el.classList.toggle('on'); break;
 
     case 'add-skill': {
       const inp = $('#new-skill');
       const v = (inp.value||'').trim();
       if(!v) return;
       const key = v.toLowerCase();
-      if($$('#p-skills .chip').length && [...$$('#p-skills .chip')].some(c=>c.dataset.skill===key)){ inp.value=''; return; }
+      if([...$$('#p-skills .chip')].some(c=>c.dataset.skill===key)){ inp.value=''; return; }
       const btn = document.createElement('button');
       btn.type='button'; btn.className='chip on'; btn.dataset.action='toggle-skill'; btn.dataset.skill=key;
       btn.textContent = key + ' ✕';
@@ -1551,8 +1642,7 @@ document.addEventListener('click', async e => {
           habilidades: skills,
           experiencia: $('#p-exp').value
         });
-        render();
-        toast('Perfil salvo.');
+        render(); toast('Perfil salvo.');
       } catch(err){ toast(err.message,'err'); }
       break;
     }
@@ -1563,9 +1653,9 @@ document.addEventListener('change', e => {
   const el = e.target.closest('[data-action]');
   if(!el) return;
   const a = el.dataset.action;
-  if(a==='f-tipo')     { state.ui.tipo = el.value; render(); }
+  if(a==='f-tipo'){ state.ui.tipo = el.value; render(); }
   else if(a==='f-segmento'){ state.ui.segmento = el.value; render(); }
-  else if(a==='f-sort')    { state.ui.sort = el.value; render(); }
+  else if(a==='f-sort'){ state.ui.sort = el.value; render(); }
   else if(a==='edit-due'){
     const eid = Number(el.dataset.step);
     atualizarEtapa(eid, { prazo: el.value || null }).then(render).catch(err=>toast(err.message,'err'));
@@ -1575,42 +1665,51 @@ document.addEventListener('change', e => {
 document.addEventListener('input', e => {
   const el = e.target.closest('[data-action]');
   if(!el) return;
-  const a = el.dataset.action;
-  if(a==='f-query'){
+  if(el.dataset.action === 'f-query'){
     state.ui.query = el.value;
-    // re-renderiza só a lista para não perder foco
-    const active = document.activeElement;
-    const pos = active?.selectionStart;
+    const pos = el.selectionStart;
     render();
     const newInput = document.querySelector('[data-action="f-query"]');
     if(newInput){ newInput.focus(); try{ newInput.setSelectionRange(pos,pos); }catch(_){} }
   }
 });
 
-// Fechar modal com ESC
 document.addEventListener('keydown', e => {
   if(e.key === 'Escape') closeModal();
+  // Atalho: Enter no onboarding avança
+  if(e.key === 'Enter' && state.ui.onboarding){
+    const t = e.target.tagName;
+    if(t === 'INPUT') { e.preventDefault(); onbNext(); }
+  }
 });
 
 /* =========================================================================
-   15. BOOT
+   18. BOOT
    ========================================================================= */
 async function startApp(){
-  $('#boot').style.display = 'flex';
-  $('#boot').innerHTML = '<div><div class="spin"></div>Carregando seus dados…</div>';
+  // NOVO: mostra skeleton em vez do spinner central
+  $('#boot').style.display = 'none';
+  renderSkeleton();
+
   try{
     await loadAll();
     await seedSeVazio();
     await loadAll();
-    $('#boot').style.display = 'none';
+
+    // NOVO: decide se mostra onboarding
+    if(!onboardingDone()){
+      state.ui.onboarding = true;
+      state.ui.onbStep = 0;
+      state.ui.onbData = { investment: null, hours: null, skills: [], experience: '' };
+    }
     render();
   } catch(err){
-    $('#boot').innerHTML = `<div style="max-width:520px;text-align:center;padding:24px">
+    $('#root').innerHTML = `<div style="max-width:520px;margin:80px auto;text-align:center;padding:24px;font-family:Figtree,sans-serif">
       <div style="font-size:34px;margin-bottom:8px">⚠️</div>
       <b style="color:#16202e">Não consegui carregar seus dados</b>
       <p style="margin-top:8px;font-size:13.5px;color:#68758a">${esc(err.message)}</p>
       <p style="margin-top:8px;font-size:12px;color:#98a4b6">Verifique se o SQL do schema foi executado no Supabase e se as políticas RLS estão ativas.</p>
-      <button class="btn btn-ghost" style="margin-top:14px" onclick="location.reload()">Tentar novamente</button>
+      <button style="margin-top:14px;padding:10px 16px;border-radius:10px;border:0;background:#eef2f8;cursor:pointer;font-weight:700" onclick="location.reload()">Tentar novamente</button>
     </div>`;
   }
 }
