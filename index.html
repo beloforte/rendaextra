@@ -10,18 +10,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --green:#1D9D6C;--blue:#28A7F8;--ink:#16202e;--muted:#68758a;
-  --bg:#f4f7fb;--card:#fff;--line:#e3e9f2;--radius:14px;
-  --shadow:0 1px 2px rgba(16,32,52,.06),0 8px 24px -14px rgba(16,32,52,.25);
-  --red:#e04b4b;--amber:#e0a33b;
-}
+:root{--green:#1D9D6C;--blue:#28A7F8;--ink:#16202e;--muted:#68758a;--bg:#f4f7fb;--card:#fff;--line:#e3e9f2;--radius:14px;--shadow:0 1px 2px rgba(16,32,52,.06),0 8px 24px -14px rgba(16,32,52,.25);--red:#e04b4b;--amber:#e0a33b}
 html,body{height:100%}
 body{font-family:Figtree,system-ui,-apple-system,Segoe UI,sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;font-size:15px;line-height:1.5}
 button,input,select,textarea{font:inherit;color:inherit}
 .app{display:flex;min-height:100vh}
 
-/* ---------- Auth ---------- */
+/* Auth */
 .auth-wrap{min-height:100vh;display:grid;grid-template-columns:1fr 1fr}
 .auth-left{background:linear-gradient(135deg,#0e3b2c,#0e1a2b 60%,#0b2b46);color:#fff;padding:48px;display:flex;flex-direction:column;justify-content:space-between}
 .auth-brand{display:flex;align-items:center;gap:12px}
@@ -41,9 +36,9 @@ button,input,select,textarea{font:inherit;color:inherit}
 .auth-switch button{background:none;border:0;color:var(--blue);font-weight:700;cursor:pointer;text-decoration:underline}
 .auth-msg{margin-top:12px;font-size:13px;padding:10px 12px;border-radius:9px;display:none}
 .auth-msg.err{display:block;background:#fdeaea;color:#c53b3b}
-.auth-msg.ok {display:block;background:#e4f6ee;color:#137a52}
+.auth-msg.ok{display:block;background:#e4f6ee;color:#137a52}
 
-/* ---------- Onboarding ---------- */
+/* Onboarding */
 .onb-wrap{position:fixed;inset:0;background:linear-gradient(135deg,#0e3b2c,#0e1a2b 60%,#0b2b46);display:grid;place-items:center;padding:24px;z-index:400;overflow-y:auto}
 .onb-card{background:#fff;border-radius:20px;padding:36px 32px 22px;width:100%;max-width:540px;box-shadow:0 30px 80px rgba(0,0,0,.45);animation:pop .22s ease}
 .onb-progress{display:flex;gap:8px;justify-content:center;margin-bottom:30px}
@@ -65,11 +60,11 @@ button,input,select,textarea{font:inherit;color:inherit}
 .onb-mini .t{flex:1;font-size:13.5px;font-weight:700;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .onb-mini .s{font-size:11.5px;color:var(--muted)}
 
-/* ---------- Skeleton ---------- */
+/* Skeleton */
 .sk{background:linear-gradient(90deg,#eef2f8 25%,#e0e7f0 50%,#eef2f8 75%);background-size:200% 100%;animation:sk 1.4s ease-in-out infinite;border-radius:8px}
 @keyframes sk{0%{background-position:200% 0}100%{background-position:-200% 0}}
 
-/* ---------- Sidebar ---------- */
+/* Sidebar */
 .sidebar{width:252px;flex:0 0 252px;background:#0e1a2b;padding:22px 14px;display:flex;flex-direction:column;gap:4px;position:sticky;top:0;height:100vh;overflow-y:auto}
 .brand{display:flex;align-items:center;gap:11px;padding:4px 8px 20px}
 .brand .logo{width:38px;height:38px;border-radius:11px;background:linear-gradient(135deg,#1D9D6C,#28A7F8);display:grid;place-items:center;color:#fff;font-weight:800;font-size:19px;flex:0 0 38px}
@@ -88,14 +83,14 @@ button,input,select,textarea{font:inherit;color:inherit}
 .side-user .out{border:0;background:rgba(255,255,255,.08);color:#a9b6c9;width:28px;height:28px;border-radius:8px;cursor:pointer;font-size:13px}
 .side-user .out:hover{background:rgba(255,255,255,.15);color:#fff}
 
-/* ---------- Main ---------- */
+/* Main */
 .main{flex:1;min-width:0;padding:26px 30px 70px}
 .wrap{max-width:1100px;margin:0 auto}
 .page-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:22px}
 .page-head h2{font-size:25px;font-weight:800;letter-spacing:-.5px}
 .page-head p{color:var(--muted);font-size:13.5px;margin-top:2px}
 
-/* ---------- Components ---------- */
+/* Components */
 .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
 .btn{border:0;border-radius:10px;padding:10px 16px;font-weight:700;font-size:14px;cursor:pointer;transition:.15s;display:inline-flex;align-items:center;gap:7px;white-space:nowrap}
 .btn-primary{background:linear-gradient(135deg,#1D9D6C,#28A7F8);color:#fff}
@@ -131,13 +126,30 @@ button,input,select,textarea{font:inherit;color:inherit}
 .tag.warn{background:#fdeaea;color:#c53b3b}
 .tag.ok{background:#e4f6ee;color:#137a52}
 .tag.analise{background:#fdf4dd;color:#9a7413}
+.tag.lbl-green{background:#d9f0e5;color:#137a52}
+.tag.lbl-blue{background:#ddebfa;color:#1f6fd0}
+.tag.lbl-amber{background:#fdf4dd;color:#9a7413}
+.tag.lbl-red{background:#fdeaea;color:#c53b3b}
 
-.score{flex:0 0 auto;width:60px;height:60px;border-radius:50%;display:grid;place-items:center;font-weight:800;font-size:19px;letter-spacing:-.5px;border:3px solid;background:#fff}
+.subscore{font-size:10.5px;font-weight:800;padding:2.5px 8px;border-radius:20px;letter-spacing:.3px;font-variant-numeric:tabular-nums}
+.subscore.fit{background:#eef8f2;color:#0f6b47}
+.subscore.pot{background:#eef2fc;color:#1a5bb0}
+
+.score{flex:0 0 auto;width:60px;height:60px;border-radius:50%;display:grid;place-items:center;font-weight:800;font-size:19px;letter-spacing:-.5px;border:3px solid;background:#fff;position:relative}
 .score.s-high{border-color:#1D9D6C;color:#137a52}
 .score.s-mid{border-color:#28A7F8;color:#1f6fd0}
 .score.s-low{border-color:#e0a33b;color:#9a7413}
 .score.s-bad{border-color:#e04b4b;color:#c53b3b}
 .score small{font-size:10px;font-weight:700;display:block;text-align:center;margin-top:-3px;color:var(--muted)}
+
+/* Duelo Fit × Potencial */
+.duel{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px}
+.duel-card{padding:18px 20px;border-radius:var(--radius);background:#fff;border:1px solid var(--line);box-shadow:var(--shadow);display:flex;align-items:center;gap:14px}
+.duel-ring{width:66px;height:66px;border-radius:50%;display:grid;place-items:center;font-weight:800;font-size:18px;border:3px solid;flex:0 0 66px}
+.duel-ring.fit{border-color:#1D9D6C;color:#137a52;background:#f3fbf7}
+.duel-ring.pot{border-color:#28A7F8;color:#1f6fd0;background:#f3f8fe}
+.duel-txt b{font-size:14px;font-weight:800;display:block;letter-spacing:-.2px}
+.duel-txt span{font-size:12.5px;color:var(--muted);line-height:1.45;display:block;margin-top:2px}
 
 .field{margin-bottom:16px}
 .field label{display:block;font-size:13px;font-weight:700;margin-bottom:6px}
@@ -148,8 +160,12 @@ textarea{resize:vertical;min-height:80px}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 
 .chips{display:flex;flex-wrap:wrap;gap:8px}
-.chip{border:1.5px solid var(--line);background:#fff;border-radius:20px;padding:7px 14px;font-size:13px;font-weight:600;cursor:pointer;transition:.13s;color:#4b5a72}
+.chip{border:1.5px solid var(--line);background:#fff;border-radius:20px;padding:7px 14px;font-size:13px;font-weight:600;cursor:pointer;transition:.13s;color:#4b5a72;position:relative}
 .chip:hover{border-color:#c3d2e6}
+.chip.lvl-0{background:#fff;border-color:var(--line);color:#4b5a72}
+.chip.lvl-1{background:#fff;border-color:#a8e0c8;color:#137a52}
+.chip.lvl-2{background:#d9f0e5;border-color:transparent;color:#137a52}
+.chip.lvl-3{background:linear-gradient(135deg,#1D9D6C,#28A7F8);border-color:transparent;color:#fff}
 .chip.on{background:linear-gradient(135deg,#1D9D6C,#28A7F8);border-color:transparent;color:#fff}
 
 .filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px}
@@ -158,12 +174,20 @@ textarea{resize:vertical;min-height:80px}
 .detail-hero{padding:24px;border-radius:var(--radius);background:linear-gradient(135deg,#0e1a2b,#17324d);color:#fff;margin-bottom:20px;display:flex;gap:22px;align-items:center;flex-wrap:wrap}
 .detail-hero h3{font-size:23px;font-weight:800;letter-spacing:-.4px}
 .detail-hero p{color:#a9b6c9;font-size:13.5px;margin-top:5px;max-width:620px}
+
+.crit-group{margin-top:24px;margin-bottom:8px;font-size:11.5px;font-weight:800;text-transform:uppercase;letter-spacing:.8px;color:var(--muted);display:flex;align-items:center;gap:8px}
+.crit-group:first-child{margin-top:0}
+.crit-group .dot{width:8px;height:8px;border-radius:50%}
+.crit-group.fit .dot{background:#1D9D6C}
+.crit-group.pot .dot{background:#28A7F8}
 .crit{display:flex;align-items:center;gap:14px;padding:13px 0;border-bottom:1px solid var(--line)}
 .crit:last-child{border-bottom:0}
 .crit .cname{flex:0 0 190px;font-weight:700;font-size:14px}
 .crit .cname small{display:block;font-weight:500;font-size:12px;color:var(--muted)}
 .crit .bar{flex:1;height:9px;background:#eef2f8;border-radius:20px;overflow:hidden;min-width:80px}
-.crit .bar i{display:block;height:100%;border-radius:20px;background:linear-gradient(90deg,#1D9D6C,#28A7F8)}
+.crit .bar i{display:block;height:100%;border-radius:20px}
+.crit .bar i.fit{background:linear-gradient(90deg,#1D9D6C,#3ec98d)}
+.crit .bar i.pot{background:linear-gradient(90deg,#28A7F8,#7bc5ff)}
 .crit .pts{flex:0 0 74px;text-align:right;font-weight:800;font-size:14px;font-variant-numeric:tabular-nums}
 
 .plan{margin-bottom:16px;overflow:hidden}
@@ -218,20 +242,15 @@ textarea{resize:vertical;min-height:80px}
 .loading-screen .spin{width:28px;height:28px;border:3px solid #d8e0ec;border-top-color:#1D9D6C;border-radius:50%;animation:spin .8s linear infinite;margin:0 auto 10px}
 
 @media(max-width:860px){
-  .auth-wrap{grid-template-columns:1fr}
-  .auth-left{display:none}
-  .onb-card{padding:28px 22px 18px}
-  .onb-card h2{font-size:20px}
+  .auth-wrap{grid-template-columns:1fr}.auth-left{display:none}
+  .onb-card{padding:28px 22px 18px}.onb-card h2{font-size:20px}
   .app{flex-direction:column}
   .sidebar{width:100%;flex:none;height:auto;position:static;flex-direction:row;overflow-x:auto;padding:10px;gap:6px;align-items:center}
-  .brand{padding:0 12px 0 4px;flex:0 0 auto}
-  .brand span{display:none}
-  .nav-btn{width:auto;flex:0 0 auto;padding:9px 13px;font-size:13.5px}
-  .nav-btn .pill{display:none}
-  .side-user{margin-top:0;border-top:0;padding:0 8px;flex:0 0 auto}
-  .side-user .info{display:none}
-  .main{padding:18px 16px 60px}
-  .grid2{grid-template-columns:1fr}
+  .brand{padding:0 12px 0 4px;flex:0 0 auto}.brand span{display:none}
+  .nav-btn{width:auto;flex:0 0 auto;padding:9px 13px;font-size:13.5px}.nav-btn .pill{display:none}
+  .side-user{margin-top:0;border-top:0;padding:0 8px;flex:0 0 auto}.side-user .info{display:none}
+  .main{padding:18px 16px 60px}.grid2{grid-template-columns:1fr}
+  .duel{grid-template-columns:1fr}
   .crit .cname{flex:0 0 130px;font-size:13px}
   .page-head h2{font-size:21px}
   .step input[type=date]{width:120px;flex:0 0 120px}
@@ -248,17 +267,17 @@ textarea{resize:vertical;min-height:80px}
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
 /* =========================================================================
-   1. CONFIGURAÇÃO — SUBSTITUA PELOS SEUS VALORES DO SUPABASE
+   CONFIG — SUBSTITUA
    ========================================================================= */
 const SUPABASE_URL = 'https://vieifctbejcebxkcvqii.supabase.co';
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZpZWlmY3RiZWpjZWJ4a2N2cWlpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTA4NjY4NDcsImV4cCI6MjEwNjQ0Mjg0N30.ZaNe3ObYqjO8VyQBQj75sk_xCYq8-Hinzui2ENPDp0U';
 
-if (SUPABASE_URL.includes('<<<') || SUPABASE_ANON_KEY.includes('<<<')) {
+if (SUPABASE_URL.includes('COLE_AQUI')) {
   document.getElementById('boot').innerHTML =
     '<div style="max-width:520px;text-align:center;padding:24px;line-height:1.6">' +
     '<div style="font-size:34px;margin-bottom:8px">⚙️</div>' +
     '<b style="color:#16202e;font-size:15px">Configure o Supabase</b>' +
-    '<p style="margin-top:8px;font-size:13.5px">Abra este arquivo e substitua <code>SUPABASE_URL</code> e <code>SUPABASE_ANON_KEY</code> no topo do &lt;script&gt; pelos valores do seu projeto em <b>Supabase → Settings → API</b>.</p>' +
+    '<p style="margin-top:8px;font-size:13.5px">Abra este arquivo e substitua <code>SUPABASE_URL</code> e <code>SUPABASE_ANON_KEY</code> pelos valores do seu projeto.</p>' +
     '</div>';
   throw new Error('Supabase não configurado');
 }
@@ -268,67 +287,47 @@ const sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
 });
 
 /* =========================================================================
-   2. SEED
+   SEED
    ========================================================================= */
 const SEED_IDEIAS = [
-  {titulo:'Marketing de afiliados',categoria:'Marketing digital',segmento:'Marketing digital',descricao:'Divulgar produtos de terceiros e ganhar comissão por venda, usando conteúdo e tráfego.',investimento_min:200,horas_semana:8,habilidades:'vendas, copywriting, tráfego pago',concorrencia:5,mercado:5,retorno_estimado:'Comissões de 20% a 80% por venda'},
-  {titulo:'Edição de vídeos para criadores',categoria:'Criação de conteúdo',segmento:'Criação de conteúdo',descricao:'Editar cortes e vídeos longos para youtubers, podcasters e infoprodutores.',investimento_min:300,horas_semana:10,habilidades:'edição de vídeo, design',concorrencia:4,mercado:5,retorno_estimado:'R$ 30 a R$ 300 por vídeo'},
-  {titulo:'Redação de artigos e SEO',categoria:'Criação de conteúdo',segmento:'Criação de conteúdo',descricao:'Escrever artigos otimizados para blogs, agências e sites de conteúdo.',investimento_min:50,horas_semana:8,habilidades:'redação, copywriting',concorrencia:4,mercado:4,retorno_estimado:'R$ 60 a R$ 400 por artigo'},
-  {titulo:'Social media para negócios locais',categoria:'Marketing digital',segmento:'Marketing digital',descricao:'Gerenciar Instagram e Facebook de clínicas, restaurantes e lojas da região.',investimento_min:100,horas_semana:10,habilidades:'gestão de redes, design, copywriting',concorrencia:5,mercado:5,retorno_estimado:'R$ 800 a R$ 3.000/mês por cliente'},
-  {titulo:'Gestão de tráfego pago',categoria:'Marketing digital',segmento:'Marketing digital',descricao:'Criar e otimizar campanhas de anúncios para pequenas e médias empresas.',investimento_min:500,horas_semana:12,habilidades:'tráfego pago, vendas',concorrencia:4,mercado:5,retorno_estimado:'R$ 1.500 a R$ 5.000/mês por cliente'},
-  {titulo:'Criação de sites e landing pages',categoria:'Serviços digitais',segmento:'Serviços digitais',descricao:'Montar sites institucionais e páginas de captura para negócios e profissionais.',investimento_min:100,horas_semana:12,habilidades:'programação, design',concorrencia:4,mercado:4,retorno_estimado:'R$ 800 a R$ 5.000 por projeto'},
-  {titulo:'Venda de infoprodutos',categoria:'Marketing digital',segmento:'Marketing digital',descricao:'Empacotar seu conhecimento em ebook ou curso e vender em plataformas digitais.',investimento_min:300,horas_semana:12,habilidades:'ensino, copywriting, vendas',concorrencia:5,mercado:4,retorno_estimado:'R$ 20 a R$ 500 por unidade'},
-  {titulo:'Assistência virtual (VA)',categoria:'Serviços digitais',segmento:'Serviços digitais',descricao:'Cuidar de agenda, e-mails, planilhas e tarefas administrativas de outros negócios.',investimento_min:0,horas_semana:15,habilidades:'organização, atendimento',concorrencia:3,mercado:4,retorno_estimado:'R$ 1.000 a R$ 3.000/mês'},
-  {titulo:'Dropshipping nacional',categoria:'E-commerce',segmento:'E-commerce',descricao:'Vender produtos sem estoque, repassando o pedido a fornecedores nacionais.',investimento_min:800,horas_semana:15,habilidades:'vendas, tráfego pago, gestão de redes',concorrencia:5,mercado:4,retorno_estimado:'Margem de 20% a 50% por venda'},
-  {titulo:'Revenda de produtos por atacado',categoria:'E-commerce',segmento:'E-commerce',descricao:'Comprar em atacado e revender em marketplaces, feiras e grupos de bairro.',investimento_min:1500,horas_semana:15,habilidades:'vendas, organização',concorrencia:4,mercado:4,retorno_estimado:'Margem de 30% a 100%'},
-  {titulo:'Doces caseiros por encomenda',categoria:'Alimentação',segmento:'Alimentação',descricao:'Produzir bolos, brigadeiros e sobremesas sob encomenda para festas e empresas.',investimento_min:600,horas_semana:12,habilidades:'culinária, organização',concorrencia:4,mercado:4,retorno_estimado:'R$ 30 a R$ 200 por encomenda'},
-  {titulo:'Brechó e revenda de roupas usadas',categoria:'Moda e acessórios',segmento:'Moda e acessórios',descricao:'Garimpar peças em brechós e liquidações e revender online com boa margem.',investimento_min:500,horas_semana:10,habilidades:'vendas, fotografia',concorrencia:3,mercado:4,retorno_estimado:'Margem de 100% a 300% por peça'},
-  {titulo:'Artesanato e venda online',categoria:'Artesanato',segmento:'Artesanato',descricao:'Produzir peças manuais e vender em feiras, marketplaces e redes sociais.',investimento_min:300,horas_semana:10,habilidades:'artesanato, fotografia',concorrencia:3,mercado:3,retorno_estimado:'R$ 20 a R$ 300 por peça'},
-  {titulo:'Personalização de canecas e camisetas',categoria:'Artesanato',segmento:'Artesanato',descricao:'Estampar e personalizar peças para presentes, empresas e eventos.',investimento_min:1200,horas_semana:12,habilidades:'artesanato, design',concorrencia:4,mercado:4,retorno_estimado:'R$ 15 a R$ 60 de margem por peça'},
-  {titulo:'Marmitas fitness por assinatura',categoria:'Alimentação',segmento:'Alimentação',descricao:'Produzir refeições saudáveis e entregar em planos semanais para clientes fixos.',investimento_min:2000,horas_semana:20,habilidades:'culinária, organização, atendimento',concorrencia:4,mercado:4,retorno_estimado:'R$ 300 a R$ 800 por cliente/mês'},
-  {titulo:'Revenda de semijoias',categoria:'Moda e acessórios',segmento:'Moda e acessórios',descricao:'Revender semijoias de catálogo com demonstração em casa e venda por redes sociais.',investimento_min:800,horas_semana:8,habilidades:'vendas, gestão de redes',concorrencia:4,mercado:3,retorno_estimado:'Margem de 80% a 150% por peça'},
-  {titulo:'Produção de velas aromáticas',categoria:'Casa e decoração',segmento:'Casa e decoração',descricao:'Fabricar velas artesanais e vender como presente, decoração e bem-estar.',investimento_min:500,horas_semana:10,habilidades:'artesanato, design',concorrencia:3,mercado:3,retorno_estimado:'R$ 15 a R$ 60 de margem por vela'},
-  {titulo:'Plantas e suculentas',categoria:'Casa e decoração',segmento:'Casa e decoração',descricao:'Cultivar e vender suculentas, vasos montados e kits de presente.',investimento_min:400,horas_semana:8,habilidades:'artesanato, fotografia',concorrencia:2,mercado:3,retorno_estimado:'R$ 10 a R$ 80 por vaso montado'}
+  {titulo:'Marketing de afiliados',categoria:'Marketing digital',segmento:'Marketing digital',descricao:'Divulgar produtos de terceiros e ganhar comissão por venda, usando conteúdo e tráfego.',investimento_min:200,horas_semana:8,habilidades:'vendas, copywriting, tráfego pago',concorrencia:5,mercado:5,retorno_estimado:'Comissões de 20% a 80% por venda',tempo_primeiro_real:3},
+  {titulo:'Edição de vídeos para criadores',categoria:'Criação de conteúdo',segmento:'Criação de conteúdo',descricao:'Editar cortes e vídeos longos para youtubers, podcasters e infoprodutores.',investimento_min:300,horas_semana:10,habilidades:'edição de vídeo, design',concorrencia:4,mercado:5,retorno_estimado:'R$ 30 a R$ 300 por vídeo',tempo_primeiro_real:3},
+  {titulo:'Redação de artigos e SEO',categoria:'Criação de conteúdo',segmento:'Criação de conteúdo',descricao:'Escrever artigos otimizados para blogs, agências e sites de conteúdo.',investimento_min:50,horas_semana:8,habilidades:'redação, copywriting',concorrencia:4,mercado:4,retorno_estimado:'R$ 60 a R$ 400 por artigo',tempo_primeiro_real:3},
+  {titulo:'Social media para negócios locais',categoria:'Marketing digital',segmento:'Marketing digital',descricao:'Gerenciar Instagram e Facebook de clínicas, restaurantes e lojas da região.',investimento_min:100,horas_semana:10,habilidades:'gestão de redes, design, copywriting',concorrencia:5,mercado:5,retorno_estimado:'R$ 800 a R$ 3.000/mês por cliente',tempo_primeiro_real:3},
+  {titulo:'Gestão de tráfego pago',categoria:'Marketing digital',segmento:'Marketing digital',descricao:'Criar e otimizar campanhas de anúncios para pequenas e médias empresas.',investimento_min:500,horas_semana:12,habilidades:'tráfego pago, vendas',concorrencia:4,mercado:5,retorno_estimado:'R$ 1.500 a R$ 5.000/mês por cliente',tempo_primeiro_real:3},
+  {titulo:'Criação de sites e landing pages',categoria:'Serviços digitais',segmento:'Serviços digitais',descricao:'Montar sites institucionais e páginas de captura para negócios e profissionais.',investimento_min:100,horas_semana:12,habilidades:'programação, design',concorrencia:4,mercado:4,retorno_estimado:'R$ 800 a R$ 5.000 por projeto',tempo_primeiro_real:3},
+  {titulo:'Venda de infoprodutos',categoria:'Marketing digital',segmento:'Marketing digital',descricao:'Empacotar seu conhecimento em ebook ou curso e vender em plataformas digitais.',investimento_min:300,horas_semana:12,habilidades:'ensino, copywriting, vendas',concorrencia:5,mercado:4,retorno_estimado:'R$ 20 a R$ 500 por unidade',tempo_primeiro_real:4},
+  {titulo:'Assistência virtual (VA)',categoria:'Serviços digitais',segmento:'Serviços digitais',descricao:'Cuidar de agenda, e-mails, planilhas e tarefas administrativas de outros negócios.',investimento_min:0,horas_semana:15,habilidades:'organização, atendimento',concorrencia:3,mercado:4,retorno_estimado:'R$ 1.000 a R$ 3.000/mês',tempo_primeiro_real:2},
+  {titulo:'Dropshipping nacional',categoria:'E-commerce',segmento:'E-commerce',descricao:'Vender produtos sem estoque, repassando o pedido a fornecedores nacionais.',investimento_min:800,horas_semana:15,habilidades:'vendas, tráfego pago, gestão de redes',concorrencia:5,mercado:4,retorno_estimado:'Margem de 20% a 50% por venda',tempo_primeiro_real:4},
+  {titulo:'Revenda de produtos por atacado',categoria:'E-commerce',segmento:'E-commerce',descricao:'Comprar em atacado e revender em marketplaces, feiras e grupos de bairro.',investimento_min:1500,horas_semana:15,habilidades:'vendas, organização',concorrencia:4,mercado:4,retorno_estimado:'Margem de 30% a 100%',tempo_primeiro_real:3},
+  {titulo:'Doces caseiros por encomenda',categoria:'Alimentação',segmento:'Alimentação',descricao:'Produzir bolos, brigadeiros e sobremesas sob encomenda para festas e empresas.',investimento_min:600,horas_semana:12,habilidades:'culinária, organização',concorrencia:4,mercado:4,retorno_estimado:'R$ 30 a R$ 200 por encomenda',tempo_primeiro_real:2},
+  {titulo:'Brechó e revenda de roupas usadas',categoria:'Moda e acessórios',segmento:'Moda e acessórios',descricao:'Garimpar peças em brechós e liquidações e revender online com boa margem.',investimento_min:500,horas_semana:10,habilidades:'vendas, fotografia',concorrencia:3,mercado:4,retorno_estimado:'Margem de 100% a 300% por peça',tempo_primeiro_real:3},
+  {titulo:'Artesanato e venda online',categoria:'Artesanato',segmento:'Artesanato',descricao:'Produzir peças manuais e vender em feiras, marketplaces e redes sociais.',investimento_min:300,horas_semana:10,habilidades:'artesanato, fotografia',concorrencia:3,mercado:3,retorno_estimado:'R$ 20 a R$ 300 por peça',tempo_primeiro_real:3},
+  {titulo:'Personalização de canecas e camisetas',categoria:'Artesanato',segmento:'Artesanato',descricao:'Estampar e personalizar peças para presentes, empresas e eventos.',investimento_min:1200,horas_semana:12,habilidades:'artesanato, design',concorrencia:4,mercado:4,retorno_estimado:'R$ 15 a R$ 60 de margem por peça',tempo_primeiro_real:3},
+  {titulo:'Marmitas fitness por assinatura',categoria:'Alimentação',segmento:'Alimentação',descricao:'Produzir refeições saudáveis e entregar em planos semanais para clientes fixos.',investimento_min:2000,horas_semana:20,habilidades:'culinária, organização, atendimento',concorrencia:4,mercado:4,retorno_estimado:'R$ 300 a R$ 800 por cliente/mês',tempo_primeiro_real:3},
+  {titulo:'Revenda de semijoias',categoria:'Moda e acessórios',segmento:'Moda e acessórios',descricao:'Revender semijoias de catálogo com demonstração em casa e venda por redes sociais.',investimento_min:800,horas_semana:8,habilidades:'vendas, gestão de redes',concorrencia:4,mercado:3,retorno_estimado:'Margem de 80% a 150% por peça',tempo_primeiro_real:2},
+  {titulo:'Produção de velas aromáticas',categoria:'Casa e decoração',segmento:'Casa e decoração',descricao:'Fabricar velas artesanais e vender como presente, decoração e bem-estar.',investimento_min:500,horas_semana:10,habilidades:'artesanato, design',concorrencia:3,mercado:3,retorno_estimado:'R$ 15 a R$ 60 de margem por vela',tempo_primeiro_real:3},
+  {titulo:'Plantas e suculentas',categoria:'Casa e decoração',segmento:'Casa e decoração',descricao:'Cultivar e vender suculentas, vasos montados e kits de presente.',investimento_min:400,horas_semana:8,habilidades:'artesanato, fotografia',concorrencia:2,mercado:3,retorno_estimado:'R$ 10 a R$ 80 por vaso montado',tempo_primeiro_real:3}
 ];
 
-const DEFAULT_STEPS = [
-  'Validar a demanda com 10 possíveis clientes',
-  'Definir oferta, preço e público',
-  'Montar a estrutura mínima (perfil, loja ou portfólio)',
-  'Fazer as primeiras 3 vendas',
-  'Revisar resultados e decidir se escala'
-];
+const DEFAULT_STEPS = ['Validar a demanda com 10 possíveis clientes','Definir oferta, preço e público','Montar a estrutura mínima (perfil, loja ou portfólio)','Fazer as primeiras 3 vendas','Revisar resultados e decidir se escala'];
 const DEFAULT_DIAS = [7, 10, 17, 30, 45];
-
 const SKILL_LIST = ['Vendas','Negociação','Prospecção','Atendimento','Comunicação','Marketing','Redes sociais','Tráfego pago','Design','Edição de vídeo','Programação','Redação','Tecnologia','Culinária','Logística','Ensino','Consultoria','Análise de dados','Artesanato','Organização','Fotografia','Liderança'];
 
 /* =========================================================================
-   3. ESTADO
+   ESTADO
    ========================================================================= */
 const state = {
-  user: null,
-  perfil: null,
-  ideias: [],
-  planos: [],
-  etapas: {},
+  user: null, perfil: null, ideias: [], planos: [], etapas: {},
   ui: {
-    screen: 'painel',
-    ideaId: null,
-    query: '',
-    tipo: 'todos',
-    segmento: 'todos',
-    sort: 'nota',
-    planOpen: {},
-    busy: false,
-    // NOVO: onboarding
-    onboarding: false,
-    onbStep: 0,
-    onbData: { investment: null, hours: null, skills: [], experience: '' }
+    screen:'painel', ideaId:null, query:'', tipo:'todos', segmento:'todos', sort:'nota',
+    planOpen:{}, busy:false, onboarding:false, onbStep:0,
+    onbData:{ investment:null, hours:null, skills:[], experience:'' }
   }
 };
 
 /* =========================================================================
-   4. UTILITÁRIOS
+   UTILS
    ========================================================================= */
 const $  = s => document.querySelector(s);
 const $$ = s => document.querySelectorAll(s);
@@ -338,7 +337,7 @@ const todayISO = () => new Date().toISOString().slice(0,10);
 function addDays(iso, n){ const d = new Date(iso+'T12:00:00'); d.setDate(d.getDate()+n); return d.toISOString().slice(0,10); }
 function diffDays(iso){ const a = new Date(todayISO()+'T12:00:00'); const b = new Date(iso+'T12:00:00'); return Math.round((b-a)/86400000); }
 const fmtDate = iso => { if(!iso) return '—'; const [y,m,d]=iso.split('-'); return `${d}/${m}/${y}`; };
-const scoreClass = n => n>=75?'s-high':n>=55?'s-mid':n>=40?'s-low':'s-bad';
+const scoreClass = n => n>=80?'s-high':n>=60?'s-mid':n>=40?'s-low':'s-bad';
 
 function toast(msg, kind=''){
   const t = $('#toast');
@@ -350,27 +349,24 @@ function toast(msg, kind=''){
 function normSkills(str){ return String(str||'').split(/[,;]/).map(s=>s.trim().toLowerCase()).filter(Boolean).join(', '); }
 function skillsArr(str){ return String(str||'').split(',').map(s=>s.trim().toLowerCase()).filter(Boolean); }
 
-// NOVO: marcadores de onboarding concluído (por usuário)
 function onboardingDone(){ try{ return localStorage.getItem('radar_onb_'+state.user.id)==='1'; }catch(e){ return false; } }
 function markOnboardingDone(){ try{ localStorage.setItem('radar_onb_'+state.user.id,'1'); }catch(e){} }
 
 /* =========================================================================
-   5. AUTENTICAÇÃO
+   AUTENTICAÇÃO
    ========================================================================= */
 async function initAuth(){
   const { data: { session } } = await sb.auth.getSession();
   state.user = session?.user || null;
   sb.auth.onAuthStateChange((_e, session) => {
     state.user = session?.user || null;
-    if (state.user) startApp();
-    else renderAuth();
+    if (state.user) startApp(); else renderAuth();
   });
-  if (state.user) startApp();
-  else renderAuth();
+  if (state.user) startApp(); else renderAuth();
 }
 
 function renderAuth(){
-  $('#boot').style.display = 'none';
+  $('#boot').style.display='none';
   $('#root').innerHTML = `
     <div class="auth-wrap">
       <div class="auth-left">
@@ -378,7 +374,7 @@ function renderAuth(){
         <div>
           <h2>Encontre a renda extra certa para você e leve até o fim.</h2>
           <div class="auth-feats">
-            <div class="auth-feat"><div class="ico">🎯</div><div>Notas de 0 a 100 que cruzam seu perfil com concorrência e mercado.</div></div>
+            <div class="auth-feat"><div class="ico">🎯</div><div>Duas notas por ideia: o quanto ela cabe em você e o quanto ela pode render.</div></div>
             <div class="auth-feat"><div class="ico">📋</div><div>Planos com etapas, prazos e lembretes para cada ideia aprovada.</div></div>
             <div class="auth-feat"><div class="ico">🗂️</div><div>Histórico de descartes que evita sugerir ideias parecidas.</div></div>
           </div>
@@ -397,37 +393,25 @@ function renderAuth(){
         </div>
       </div>
     </div>`;
-
-  let mode = 'login';
+  let mode='login';
   const setMode = m => {
     mode = m;
-    $('#auth-title').textContent = m==='login' ? 'Entrar' : 'Criar conta';
-    $('#auth-sub').textContent   = m==='login' ? 'Acesse com seu e-mail para ver suas oportunidades.' : 'Crie sua conta para começar o radar.';
-    $('#auth-go').textContent    = m==='login' ? 'Entrar' : 'Criar conta';
-    $('#auth-switch-txt').textContent = m==='login' ? 'Ainda não tem conta?' : 'Já tem conta?';
-    $('#auth-switch-btn').textContent = m==='login' ? 'Criar conta' : 'Entrar';
-    $('#auth-pass').setAttribute('autocomplete', m==='login' ? 'current-password' : 'new-password');
+    $('#auth-title').textContent = m==='login'?'Entrar':'Criar conta';
+    $('#auth-sub').textContent = m==='login'?'Acesse com seu e-mail para ver suas oportunidades.':'Crie sua conta para começar o radar.';
+    $('#auth-go').textContent = m==='login'?'Entrar':'Criar conta';
+    $('#auth-switch-txt').textContent = m==='login'?'Ainda não tem conta?':'Já tem conta?';
+    $('#auth-switch-btn').textContent = m==='login'?'Criar conta':'Entrar';
+    $('#auth-pass').setAttribute('autocomplete', m==='login'?'current-password':'new-password');
     showMsg('');
   };
-  const showMsg = (m, kind='err') => {
-    const el = $('#auth-msg');
-    if(!m){ el.className = 'auth-msg'; el.textContent=''; return; }
-    el.className = 'auth-msg ' + kind; el.textContent = m;
-  };
-  const setBusy = b => {
-    const b1 = $('#auth-go');
-    b1.disabled = b;
-    if(b) b1.innerHTML = '<span class="spin"></span> Aguarde…';
-    else b1.textContent = mode==='login' ? 'Entrar' : 'Criar conta';
-  };
-
-  $('#auth-switch-btn').addEventListener('click', () => setMode(mode==='login'?'signup':'login'));
-
+  const showMsg=(m,k='err')=>{const el=$('#auth-msg');if(!m){el.className='auth-msg';el.textContent='';return;}el.className='auth-msg '+k;el.textContent=m;};
+  const setBusy=b=>{const b1=$('#auth-go');b1.disabled=b;if(b)b1.innerHTML='<span class="spin"></span> Aguarde…';else b1.textContent=mode==='login'?'Entrar':'Criar conta';};
+  $('#auth-switch-btn').addEventListener('click',()=>setMode(mode==='login'?'signup':'login'));
   const submit = async () => {
     const email = $('#auth-email').value.trim();
-    const pass  = $('#auth-pass').value;
-    if(!email || !pass){ showMsg('Preencha e-mail e senha.'); return; }
-    if(pass.length < 6){ showMsg('Senha precisa ter ao menos 6 caracteres.'); return; }
+    const pass = $('#auth-pass').value;
+    if(!email||!pass){ showMsg('Preencha e-mail e senha.'); return; }
+    if(pass.length<6){ showMsg('Senha precisa ter ao menos 6 caracteres.'); return; }
     setBusy(true); showMsg('');
     try{
       if(mode==='login'){
@@ -436,35 +420,24 @@ function renderAuth(){
       } else {
         const { data, error } = await sb.auth.signUp({ email, password: pass });
         if(error) throw error;
-        if(!data.session){
-          showMsg('Conta criada. Confirme seu e-mail e depois faça login.', 'ok');
-          setBusy(false); setMode('login'); return;
-        }
+        if(!data.session){ showMsg('Conta criada. Confirme seu e-mail e depois faça login.','ok'); setBusy(false); setMode('login'); return; }
       }
     } catch(err){
       const msg = String(err.message||err);
-      showMsg(
-        msg.includes('Invalid login') ? 'E-mail ou senha incorretos.' :
-        msg.includes('already registered') ? 'Este e-mail já está cadastrado. Faça login.' :
-        msg
-      );
+      showMsg(msg.includes('Invalid login')?'E-mail ou senha incorretos.':msg.includes('already registered')?'Este e-mail já está cadastrado. Faça login.':msg);
       setBusy(false);
     }
   };
-
   $('#auth-go').addEventListener('click', submit);
   $('#auth-pass').addEventListener('keydown', e => { if(e.key==='Enter') submit(); });
   $('#auth-email').addEventListener('keydown', e => { if(e.key==='Enter') $('#auth-pass').focus(); });
   $('#auth-email').focus();
 }
 
-async function logout(){
-  if(!confirm('Sair da conta?')) return;
-  await sb.auth.signOut();
-}
+async function logout(){ if(!confirm('Sair da conta?')) return; await sb.auth.signOut(); }
 
 /* =========================================================================
-   6. CAMADA DE DADOS
+   DADOS
    ========================================================================= */
 async function loadAll(){
   const uid = state.user.id;
@@ -478,38 +451,25 @@ async function loadAll(){
   if(ideiasR.error) throw ideiasR.error;
   if(planosR.error) throw planosR.error;
   if(etapasR.error) throw etapasR.error;
-
   state.perfil = perfilR.data || null;
   state.ideias = ideiasR.data || [];
   state.planos = planosR.data || [];
   state.etapas = {};
   const planoIds = new Set(state.planos.map(p=>p.id));
-  (etapasR.data||[]).forEach(e=>{
-    if(planoIds.has(e.plano_id)){
-      (state.etapas[e.plano_id] = state.etapas[e.plano_id] || []).push(e);
-    }
-  });
+  (etapasR.data||[]).forEach(e=>{ if(planoIds.has(e.plano_id)) (state.etapas[e.plano_id]=state.etapas[e.plano_id]||[]).push(e); });
 }
 
 async function seedSeVazio(){
   if(state.ideias.length > 0) return;
   const uid = state.user.id;
   const rows = SEED_IDEIAS.map(i => ({
-    usuario_id: uid,
-    titulo: i.titulo,
-    categoria: i.categoria,
-    segmento: i.segmento,
-    descricao: i.descricao,
-    investimento_min: i.investimento_min,
-    horas_semana: i.horas_semana,
-    habilidades: normSkills(i.habilidades),
-    concorrencia: i.concorrencia,
-    mercado: i.mercado,
-    retorno_estimado: i.retorno_estimado,
-    status: 'NOVA'
+    usuario_id: uid, titulo:i.titulo, categoria:i.categoria, segmento:i.segmento,
+    descricao:i.descricao, investimento_min:i.investimento_min, horas_semana:i.horas_semana,
+    habilidades:normSkills(i.habilidades), concorrencia:i.concorrencia, mercado:i.mercado,
+    retorno_estimado:i.retorno_estimado, tempo_primeiro_real:i.tempo_primeiro_real, status:'NOVA'
   }));
   const { error } = await sb.from('ideias').insert(rows);
-  if(error){ toast('Erro ao preparar ideias iniciais: '+error.message, 'err'); return; }
+  if(error){ toast('Erro ao preparar ideias iniciais: '+error.message,'err'); return; }
   await loadAll();
 }
 
@@ -517,12 +477,13 @@ async function salvarPerfil(dados){
   const uid = state.user.id;
   const payload = {
     usuario_id: uid,
-    investimento: dados.investimento === '' || dados.investimento === null ? null : Number(dados.investimento),
-    horas_semana: dados.horas_semana === '' || dados.horas_semana === null ? null : Number(dados.horas_semana),
+    investimento: dados.investimento===''||dados.investimento===null?null:Number(dados.investimento),
+    horas_semana: dados.horas_semana===''||dados.horas_semana===null?null:Number(dados.horas_semana),
     habilidades: normSkills(dados.habilidades),
+    habilidades_nivel: dados.habilidades_nivel || {},
     experiencia: String(dados.experiencia||'').trim()
   };
-  const { data, error } = await sb.from('perfil').upsert(payload, { onConflict: 'usuario_id' }).select().single();
+  const { data, error } = await sb.from('perfil').upsert(payload,{ onConflict:'usuario_id' }).select().single();
   if(error) throw error;
   state.perfil = data;
 }
@@ -540,6 +501,7 @@ async function criarIdeia(dados){
     concorrencia: Number(dados.concorrencia)||3,
     mercado: Number(dados.mercado)||3,
     retorno_estimado: (dados.retorno_estimado||'').trim(),
+    tempo_primeiro_real: Number(dados.tempo_primeiro_real)||3,
     status: 'NOVA'
   };
   const { data, error } = await sb.from('ideias').insert(payload).select().single();
@@ -559,9 +521,10 @@ async function editarIdeia(id, dados){
     habilidades: normSkills(dados.habilidades),
     concorrencia: Number(dados.concorrencia)||3,
     mercado: Number(dados.mercado)||3,
-    retorno_estimado: (dados.retorno_estimado||'').trim()
+    retorno_estimado: (dados.retorno_estimado||'').trim(),
+    tempo_primeiro_real: Number(dados.tempo_primeiro_real)||3
   };
-  const { data, error } = await sb.from('ideias').update(payload).eq('id', id).eq('usuario_id', state.user.id).select().single();
+  const { data, error } = await sb.from('ideias').update(payload).eq('id',id).eq('usuario_id',state.user.id).select().single();
   if(error) throw error;
   const i = state.ideias.findIndex(x=>x.id===id);
   if(i>=0) state.ideias[i] = data;
@@ -570,22 +533,16 @@ async function editarIdeia(id, dados){
 
 async function mudarStatusIdeia(id, novoStatus, motivo){
   const payload = { status: novoStatus };
-  if(novoStatus === 'DESCARTADA'){
-    payload.motivo_descarte = motivo || '';
-    payload.descartada_em = new Date().toISOString();
-  } else {
-    payload.motivo_descarte = null;
-    payload.descartada_em = null;
-  }
-  const { data, error } = await sb.from('ideias').update(payload).eq('id', id).eq('usuario_id', state.user.id).select().single();
+  if(novoStatus==='DESCARTADA'){ payload.motivo_descarte = motivo||''; payload.descartada_em = new Date().toISOString(); }
+  else { payload.motivo_descarte = null; payload.descartada_em = null; }
+  const { data, error } = await sb.from('ideias').update(payload).eq('id',id).eq('usuario_id',state.user.id).select().single();
   if(error) throw error;
   const i = state.ideias.findIndex(x=>x.id===id);
   if(i>=0) state.ideias[i] = data;
-
-  if(novoStatus === 'DESCARTADA'){
+  if(novoStatus==='DESCARTADA'){
     const plano = state.planos.find(p=>p.ideia_id===id && (p.status==='ATIVO'||p.status==='PAUSADO'));
     if(plano){
-      await sb.from('planos').update({status:'CANCELADO'}).eq('id', plano.id).eq('usuario_id', state.user.id);
+      await sb.from('planos').update({status:'CANCELADO'}).eq('id',plano.id).eq('usuario_id',state.user.id);
       plano.status = 'CANCELADO';
     }
   }
@@ -594,24 +551,14 @@ async function mudarStatusIdeia(id, novoStatus, motivo){
 
 async function criarPlano(ideiaId){
   const uid = state.user.id;
-  const { data: plano, error: e1 } = await sb.from('planos')
-    .insert({ usuario_id: uid, ideia_id: ideiaId, status: 'ATIVO', inicio: todayISO() })
-    .select().single();
+  const { data: plano, error: e1 } = await sb.from('planos').insert({ usuario_id:uid, ideia_id:ideiaId, status:'ATIVO', inicio:todayISO() }).select().single();
   if(e1) throw e1;
-
   const base = todayISO();
-  const etapas = DEFAULT_STEPS.map((t, i) => ({
-    plano_id: plano.id, titulo: t, prazo: addDays(base, DEFAULT_DIAS[i]),
-    ordem: i+1, concluida: false, lembrete: true
-  }));
+  const etapas = DEFAULT_STEPS.map((t,i)=>({ plano_id:plano.id, titulo:t, prazo:addDays(base,DEFAULT_DIAS[i]), ordem:i+1, concluida:false, lembrete:true }));
   const { data: etapasData, error: e2 } = await sb.from('etapas').insert(etapas).select();
   if(e2) throw e2;
-
-  const { data: ideiaUpd, error: e3 } = await sb.from('ideias')
-    .update({ status: 'EM_EXECUCAO' })
-    .eq('id', ideiaId).eq('usuario_id', uid).select().single();
+  const { data: ideiaUpd, error: e3 } = await sb.from('ideias').update({ status:'EM_EXECUCAO' }).eq('id',ideiaId).eq('usuario_id',uid).select().single();
   if(e3) throw e3;
-
   state.planos.push(plano);
   state.etapas[plano.id] = etapasData;
   const i = state.ideias.findIndex(x=>x.id===ideiaId);
@@ -621,27 +568,18 @@ async function criarPlano(ideiaId){
 }
 
 async function mudarStatusPlano(planoId, novoStatus){
-  const { data, error } = await sb.from('planos')
-    .update({ status: novoStatus })
-    .eq('id', planoId).eq('usuario_id', state.user.id).select().single();
+  const { data, error } = await sb.from('planos').update({status:novoStatus}).eq('id',planoId).eq('usuario_id',state.user.id).select().single();
   if(error) throw error;
   const p = state.planos.find(x=>x.id===planoId);
   if(p) p.status = data.status;
-
-  const novoStatusIdeia =
-    novoStatus === 'CONCLUIDO' ? 'CONCLUIDA' :
-    novoStatus === 'CANCELADO' ? 'NOVA' :
-    novoStatus === 'PAUSADO' ? 'EM_ANALISE' : 'EM_EXECUCAO';
-
+  const novoStatusIdeia = novoStatus==='CONCLUIDO'?'CONCLUIDA':novoStatus==='CANCELADO'?'NOVA':novoStatus==='PAUSADO'?'EM_ANALISE':'EM_EXECUCAO';
   if(p){
-    const { data: ideiaUpd } = await sb.from('ideias')
-      .update({ status: novoStatusIdeia })
-      .eq('id', p.ideia_id).eq('usuario_id', state.user.id).select().single();
+    const { data: ideiaUpd } = await sb.from('ideias').update({status:novoStatusIdeia}).eq('id',p.ideia_id).eq('usuario_id',state.user.id).select().single();
     const i = state.ideias.findIndex(x=>x.id===p.ideia_id);
     if(i>=0 && ideiaUpd) state.ideias[i] = ideiaUpd;
   }
-  if(novoStatus === 'CONCLUIDO'){
-    await sb.from('etapas').update({ concluida: true }).eq('plano_id', planoId);
+  if(novoStatus==='CONCLUIDO'){
+    await sb.from('etapas').update({concluida:true}).eq('plano_id',planoId);
     (state.etapas[planoId]||[]).forEach(e=>e.concluida = true);
   }
 }
@@ -649,14 +587,13 @@ async function mudarStatusPlano(planoId, novoStatus){
 async function excluirPlano(planoId){
   const p = state.planos.find(x=>x.id===planoId);
   if(!p) return;
-  const { error } = await sb.from('planos').delete().eq('id', planoId).eq('usuario_id', state.user.id);
+  const { error } = await sb.from('planos').delete().eq('id',planoId).eq('usuario_id',state.user.id);
   if(error) throw error;
   state.planos = state.planos.filter(x=>x.id!==planoId);
   delete state.etapas[planoId];
   const outro = state.planos.find(x=>x.ideia_id===p.ideia_id && (x.status==='ATIVO'||x.status==='PAUSADO'));
   if(!outro){
-    const { data: ideiaUpd } = await sb.from('ideias')
-      .update({ status: 'NOVA' }).eq('id', p.ideia_id).eq('usuario_id', state.user.id).select().single();
+    const { data: ideiaUpd } = await sb.from('ideias').update({status:'NOVA'}).eq('id',p.ideia_id).eq('usuario_id',state.user.id).select().single();
     const i = state.ideias.findIndex(x=>x.id===p.ideia_id);
     if(i>=0 && ideiaUpd) state.ideias[i] = ideiaUpd;
   }
@@ -665,17 +602,14 @@ async function excluirPlano(planoId){
 async function adicionarEtapa(planoId, titulo, prazo){
   const atuais = state.etapas[planoId] || [];
   const ordem = atuais.length ? Math.max(...atuais.map(e=>e.ordem)) + 1 : 1;
-  const { data, error } = await sb.from('etapas').insert({
-    plano_id: planoId, titulo: titulo.trim(), prazo: prazo || null,
-    ordem, concluida: false, lembrete: true
-  }).select().single();
+  const { data, error } = await sb.from('etapas').insert({ plano_id:planoId, titulo:titulo.trim(), prazo:prazo||null, ordem, concluida:false, lembrete:true }).select().single();
   if(error) throw error;
   (state.etapas[planoId] = state.etapas[planoId] || []).push(data);
   return data;
 }
 
 async function atualizarEtapa(id, campos){
-  const { data, error } = await sb.from('etapas').update(campos).eq('id', id).select().single();
+  const { data, error } = await sb.from('etapas').update(campos).eq('id',id).select().single();
   if(error) throw error;
   for(const pid in state.etapas){
     const i = state.etapas[pid].findIndex(e=>e.id===id);
@@ -685,15 +619,13 @@ async function atualizarEtapa(id, campos){
 }
 
 async function removerEtapa(id){
-  const { error } = await sb.from('etapas').delete().eq('id', id);
+  const { error } = await sb.from('etapas').delete().eq('id',id);
   if(error) throw error;
-  for(const pid in state.etapas){
-    state.etapas[pid] = state.etapas[pid].filter(e=>e.id!==id);
-  }
+  for(const pid in state.etapas){ state.etapas[pid] = state.etapas[pid].filter(e=>e.id!==id); }
 }
 
 /* =========================================================================
-   7. CÁLCULO DA NOTA — pode receber override de perfil (usado no onboarding)
+   PERFIL VALS + SKILL LEVEL
    ========================================================================= */
 function perfilVals(override){
   const p = override || state.perfil || {};
@@ -702,45 +634,112 @@ function perfilVals(override){
   return {
     inv, hrs,
     skills: skillsArr(p.habilidades),
+    skillsNivel: p.habilidades_nivel || {},
     usandoPadrao: (p.investimento===null||p.investimento===undefined||p.investimento==='') ||
                   (p.horas_semana ===null||p.horas_semana ===undefined||p.horas_semana ==='')
   };
 }
-function segmentosDescartados(){ return new Set(state.ideias.filter(i=>i.status==='DESCARTADA').map(i=>i.segmento.toLowerCase())); }
+
+// Retorna 0 (não tem), 0.4 (básico), 0.7 (intermediário) ou 1.0 (avançado)
+function skillLevel(nome, perfilOverride){
+  const p = perfilOverride || state.perfil || {};
+  const key = String(nome||'').toLowerCase().trim();
+  if(!key) return 0;
+  const arr = skillsArr(p.habilidades || '');
+  if(!arr.includes(key)) return 0;
+  const nivel = (p.habilidades_nivel || {})[key];
+  if(nivel === 'avancado') return 1.0;
+  if(nivel === 'intermediario') return 0.7;
+  if(nivel === 'basico') return 0.4;
+  return 0.7; // default: intermediário
+}
+
+function segmentosDescartados(){
+  return new Set(state.ideias.filter(i=>i.status==='DESCARTADA').map(i=>i.segmento.toLowerCase()));
+}
+
+/* =========================================================================
+   CAMADA 1 — NOVA FÓRMULA: FIT × POTENCIAL
+   ========================================================================= */
+function labelForScore(n){
+  if(n >= 80) return { text:'Comece por aqui', cls:'lbl-green' };
+  if(n >= 60) return { text:'Bom fit',         cls:'lbl-blue'  };
+  if(n >= 40) return { text:'Vale considerar', cls:'lbl-amber' };
+  return           { text:'Não é para você',   cls:'lbl-red'   };
+}
 
 function calcularNota(ideia, overridePerfil){
-  const { inv, hrs, skills } = perfilVals(overridePerfil);
-  const segDesc = segmentosDescartados();
-  const invMin = Number(ideia.investimento_min)||0;
-  const sInv = invMin <= 0 ? 30 : 30 * Math.min(1, inv / invMin);
-  const hSem = Math.max(1, Number(ideia.horas_semana)||1);
-  const sTime = 20 * Math.min(1, hrs / hSem);
+  const { inv, hrs } = perfilVals(overridePerfil);
+
+  /* -------- FIT (0–100): o quanto essa ideia cabe em você -------- */
+  // Investimento — 40 pts
+  const invMin = Number(ideia.investimento_min) || 0;
+  const sInv = invMin <= 0 ? 40 : 40 * Math.min(1, inv / invMin);
+
+  // Tempo — 35 pts
+  const hSem = Math.max(1, Number(ideia.horas_semana) || 1);
+  const sTime = 35 * Math.min(1, hrs / hSem);
+
+  // Habilidades — 25 pts (com níveis)
   const reqs = skillsArr(ideia.habilidades);
   let sSkill, faltando = [];
-  if(reqs.length === 0){ sSkill = 20; }
-  else { faltando = reqs.filter(r => !skills.includes(r)); sSkill = 20 * ((reqs.length - faltando.length) / reqs.length); }
+  if(reqs.length === 0){ sSkill = 25; }
+  else {
+    let soma = 0;
+    reqs.forEach(r => {
+      const lvl = skillLevel(r, overridePerfil);
+      soma += lvl;
+      if(lvl < 0.7) faltando.push(r);
+    });
+    sSkill = 25 * (soma / reqs.length);
+  }
+  const fit = Math.round(sInv + sTime + sSkill);
+
+  /* -------- POTENCIAL (0–100): o quanto ela pode render -------- */
+  // Mercado — 45 pts
+  const mkt = Math.min(5, Math.max(1, Number(ideia.mercado)||3));
+  const sMarket = 45 * (mkt - 1) / 4;
+
+  // Concorrência — 15 pts (menor = melhor)
   const comp = Math.min(5, Math.max(1, Number(ideia.concorrencia)||3));
   const sComp = 15 * (5 - comp) / 4;
-  const mkt = Math.min(5, Math.max(1, Number(ideia.mercado)||3));
-  const sMarket = 15 * (mkt - 1) / 4;
-  let total = sInv + sTime + sSkill + sComp + sMarket;
-  const penalizado = ideia.status !== 'DESCARTADA' && segDesc.has((ideia.segmento||'').toLowerCase());
-  if(penalizado) total -= 20;
-  total = Math.max(0, Math.min(100, Math.round(total)));
+
+  // Velocidade até 1º real — 40 pts (1=rápido, 5=lento)
+  const vel = Math.min(5, Math.max(1, Number(ideia.tempo_primeiro_real)||3));
+  const sVel = 40 * (5 - vel) / 4;
+
+  const potencial = Math.round(sMarket + sComp + sVel);
+
+  /* -------- TOTAL: média geométrica + penalidade -------- */
+  let total = Math.round(Math.sqrt(fit * potencial));
+  const penalizado = ideia.status !== 'DESCARTADA' && segmentosDescartados().has((ideia.segmento||'').toLowerCase());
+  if(penalizado) total = Math.max(0, total - 20);
+  total = Math.max(0, Math.min(100, total));
+
   return {
-    total, penalizado,
+    total, fit, potencial, penalizado,
+    label: labelForScore(total),
     partes: [
-      {label:'Investimento', max:30, pts:sInv, nota:`Você tem ${money(inv)} · a ideia pede ${invMin>0?money(invMin):'nada'}`},
-      {label:'Tempo livre', max:20, pts:sTime, nota:`Você tem ${hrs}h/semana · a ideia pede ${hSem}h`},
-      {label:'Habilidades', max:20, pts:sSkill, nota: reqs.length ? (faltando.length ? 'Faltam: '+faltando.join(', ') : 'Você tem todas') : 'Sem exigências específicas'},
-      {label:'Concorrência', max:15, pts:sComp, nota:`Nível ${comp}/5 ${comp>=4?'(alta)':comp<=2?'(baixa)':'(média)'}`},
-      {label:'Tamanho do mercado', max:15, pts:sMarket, nota:`Nível ${mkt}/5 ${mkt>=4?'(amplo)':mkt<=2?'(nicho)':'(médio)'}`}
+      // Fit
+      {grupo:'fit', label:'Investimento', max:40, pts:sInv,
+       nota:`Você tem ${money(inv)} · a ideia pede ${invMin>0?money(invMin):'nada'}`},
+      {grupo:'fit', label:'Tempo livre', max:35, pts:sTime,
+       nota:`Você tem ${hrs}h/semana · a ideia pede ${hSem}h`},
+      {grupo:'fit', label:'Habilidades', max:25, pts:sSkill,
+       nota: reqs.length ? (faltando.length ? 'Faltam: '+faltando.join(', ') : 'Você tem todas') : 'Sem exigências'},
+      // Potencial
+      {grupo:'pot', label:'Tamanho do mercado', max:45, pts:sMarket,
+       nota:`Nível ${mkt}/5 ${mkt>=4?'(amplo)':mkt<=2?'(nicho)':'(médio)'}`},
+      {grupo:'pot', label:'Concorrência', max:15, pts:sComp,
+       nota:`Nível ${comp}/5 ${comp>=4?'(alta)':comp<=2?'(baixa)':'(média)'}`},
+      {grupo:'pot', label:'Velocidade até 1º real', max:40, pts:sVel,
+       nota:`Nível ${vel}/5 ${vel<=2?'(rápido)':vel>=4?'(lento)':'(moderado)'}`}
     ]
   };
 }
 
 /* =========================================================================
-   8. DADOS DERIVADOS
+   DERIVADOS
    ========================================================================= */
 function ideiasOrdenadas(){
   return state.ideias.filter(i=>i.status!=='DESCARTADA')
@@ -757,16 +756,14 @@ function etapasPendentes(){
     const ideia = state.ideias.find(i=>i.id===p.ideia_id);
     if(!ideia || ideia.status === 'DESCARTADA') return;
     (state.etapas[p.id]||[]).forEach(e=>{
-      if(!e.concluida && e.prazo && e.lembrete){
-        out.push({plano:p, etapa:e, dias:diffDays(e.prazo)});
-      }
+      if(!e.concluida && e.prazo && e.lembrete) out.push({plano:p, etapa:e, dias:diffDays(e.prazo)});
     });
   });
   return out.sort((a,b)=>a.dias - b.dias);
 }
 
 /* =========================================================================
-   9. RENDER — NAV
+   NAV
    ========================================================================= */
 function renderNav(){
   const pend = etapasPendentes().length;
@@ -777,10 +774,7 @@ function renderNav(){
     {id:'descartadas', icon:'🗂️', label:'Descartadas'},
     {id:'perfil', icon:'👤', label:'Meu perfil'}
   ];
-  const counts = {
-    banco: state.ideias.filter(i=>i.status!=='DESCARTADA').length,
-    descartadas: state.ideias.filter(i=>i.status==='DESCARTADA').length
-  };
+  const counts = { banco: state.ideias.filter(i=>i.status!=='DESCARTADA').length, descartadas: state.ideias.filter(i=>i.status==='DESCARTADA').length };
   const email = state.user?.email || '';
   const letra = (email[0]||'?').toUpperCase();
   return `
@@ -791,9 +785,7 @@ function renderNav(){
       if(s.id==='execucao' && pend) badge = `<span class="pill">${pend}</span>`;
       else if(s.id==='descartadas' && counts.descartadas) badge = `<span class="pill">${counts.descartadas}</span>`;
       else if(s.id==='banco' && counts.banco) badge = `<span class="pill">${counts.banco}</span>`;
-      return `<button class="nav-btn${active}" data-action="nav" data-screen="${s.id}">
-        <span class="ico">${s.icon}</span>${s.label}${badge}
-      </button>`;
+      return `<button class="nav-btn${active}" data-action="nav" data-screen="${s.id}"><span class="ico">${s.icon}</span>${s.label}${badge}</button>`;
     }).join('')}
     <div class="side-user">
       <div class="avatar">${esc(letra)}</div>
@@ -803,7 +795,7 @@ function renderNav(){
 }
 
 /* =========================================================================
-   10. RENDER — SKELETON (NOVO)
+   SKELETON
    ========================================================================= */
 function renderSkeleton(){
   $('#root').innerHTML = `
@@ -811,86 +803,46 @@ function renderSkeleton(){
       <aside class="sidebar">${renderNav()}</aside>
       <main class="main"><div class="wrap">
         <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:22px;flex-wrap:wrap;gap:16px">
-          <div>
-            <div class="sk" style="height:28px;width:160px;margin-bottom:8px"></div>
-            <div class="sk" style="height:14px;width:260px"></div>
-          </div>
+          <div><div class="sk" style="height:28px;width:160px;margin-bottom:8px"></div><div class="sk" style="height:14px;width:260px"></div></div>
           <div class="sk" style="height:40px;width:180px;border-radius:10px"></div>
         </div>
-        <div class="stats">
-          ${Array(4).fill(0).map(()=>`
-            <div class="stat">
-              <div class="sk" style="height:12px;width:70%;margin-bottom:10px"></div>
-              <div class="sk" style="height:28px;width:40%;margin-bottom:8px"></div>
-              <div class="sk" style="height:11px;width:55%"></div>
-            </div>`).join('')}
-        </div>
+        <div class="stats">${Array(4).fill(0).map(()=>`<div class="stat"><div class="sk" style="height:12px;width:70%;margin-bottom:10px"></div><div class="sk" style="height:28px;width:40%;margin-bottom:8px"></div><div class="sk" style="height:11px;width:55%"></div></div>`).join('')}</div>
         <div class="sk" style="height:16px;width:220px;margin:26px 0 12px"></div>
-        <div class="card">
-          ${Array(3).fill(0).map(()=>`
-            <div style="display:flex;gap:16px;padding:15px 18px;border-bottom:1px solid var(--line);align-items:center">
-              <div class="sk" style="width:60px;height:60px;border-radius:50%;flex:0 0 60px"></div>
-              <div style="flex:1;min-width:0">
-                <div class="sk" style="height:15px;width:55%;margin-bottom:9px"></div>
-                <div class="sk" style="height:12px;width:85%;margin-bottom:9px"></div>
-                <div class="sk" style="height:11px;width:30%"></div>
-              </div>
-            </div>`).join('')}
-        </div>
+        <div class="card">${Array(3).fill(0).map(()=>`<div style="display:flex;gap:16px;padding:15px 18px;border-bottom:1px solid var(--line);align-items:center"><div class="sk" style="width:60px;height:60px;border-radius:50%;flex:0 0 60px"></div><div style="flex:1;min-width:0"><div class="sk" style="height:15px;width:55%;margin-bottom:9px"></div><div class="sk" style="height:12px;width:85%;margin-bottom:9px"></div><div class="sk" style="height:11px;width:30%"></div></div></div>`).join('')}</div>
       </div></main>
     </div>`;
 }
 
 /* =========================================================================
-   11. RENDER — ONBOARDING (NOVO)
+   ONBOARDING
    ========================================================================= */
 function viewOnboarding(){
   const d = state.ui.onbData;
   const step = state.ui.onbStep;
   const total = 3;
-
-  // Progress dots
-  const dots = Array(total).fill(0).map((_,i)=>{
-    const cls = i < step ? 'done' : i === step ? 'active' : '';
-    return `<div class="onb-dot ${cls}"></div>`;
-  }).join('');
-
+  const dots = Array(total).fill(0).map((_,i)=>`<div class="onb-dot ${i<step?'done':i===step?'active':''}"></div>`).join('');
   let body = '';
   if(step === 0){
     body = `
       <div class="onb-ico">💰</div>
       <h2>Quanto você tem para investir?</h2>
       <p class="lead">Considere um valor que você pode usar sem afetar suas contas do mês. Se não tiver nada agora, digite 0 — existem ideias que começam do zero.</p>
-      <div class="field">
-        <input class="input" type="number" min="0" step="50" placeholder="Ex.: 500"
-               value="${d.investment ?? ''}" id="onb-inv" style="font-size:18px;padding:14px 16px">
-      </div>`;
+      <div class="field"><input class="input" type="number" min="0" step="50" placeholder="Ex.: 500" value="${d.investment ?? ''}" id="onb-inv" style="font-size:18px;padding:14px 16px"></div>`;
   } else if(step === 1){
     body = `
       <div class="onb-ico">⏱️</div>
       <h2>Quantas horas livres por semana?</h2>
-      <p class="lead">Some o tempo real que você consegue dedicar por semana, sem contar o trabalho e o sono. Seja honesto — isso muda tudo no ranking.</p>
-      <div class="field">
-        <input class="input" type="number" min="1" max="168" step="1" placeholder="Ex.: 10"
-               value="${d.hours ?? ''}" id="onb-hrs" style="font-size:18px;padding:14px 16px">
-      </div>`;
+      <p class="lead">Some o tempo real que você consegue dedicar por semana, sem contar trabalho e sono. Seja honesto — isso muda tudo no ranking.</p>
+      <div class="field"><input class="input" type="number" min="1" max="168" step="1" placeholder="Ex.: 10" value="${d.hours ?? ''}" id="onb-hrs" style="font-size:18px;padding:14px 16px"></div>`;
   } else {
-    // Preview com as top 3 baseado no que foi preenchido
-    const override = {
-      investimento: d.investment === '' ? null : Number(d.investment),
-      horas_semana: d.hours === '' ? null : Number(d.hours),
-      habilidades: (d.skills||[]).join(', ')
-    };
-    const top3 = state.ideias
-      .filter(i=>i.status!=='DESCARTADA')
+    const override = { investimento: d.investment===''?null:Number(d.investment), horas_semana: d.hours===''?null:Number(d.hours), habilidades:(d.skills||[]).join(', '), habilidades_nivel:{} };
+    const top3 = state.ideias.filter(i=>i.status!=='DESCARTADA')
       .map(i=>({idea:i, sc:calcularNota(i, override)}))
-      .sort((a,b)=>b.sc.total - a.sc.total)
-      .slice(0,3);
-
+      .sort((a,b)=>b.sc.total - a.sc.total).slice(0,3);
     body = `
       <div class="onb-ico">🎯</div>
       <h2>O que você já sabe fazer?</h2>
-      <p class="lead">Marque suas habilidades. Sem problema se não tiver certeza — você pode mudar isso depois em "Meu perfil".</p>
+      <p class="lead">Marque suas habilidades. Sem problema se não tiver certeza — depois você ajusta o nível de cada uma em "Meu perfil".</p>
       <div class="chips" id="onb-skills" style="margin-bottom:14px">
         ${SKILL_LIST.map(s=>{
           const on = (d.skills||[]).includes(s.toLowerCase());
@@ -903,25 +855,19 @@ function viewOnboarding(){
         ${top3.map(r=>`
           <div class="onb-mini">
             <div class="n ${scoreClass(r.sc.total)}">${r.sc.total}</div>
-            <div class="t">
-              ${esc(r.idea.titulo)}
-              <div class="s">${esc(r.idea.segmento)}</div>
-            </div>
+            <div class="t">${esc(r.idea.titulo)}<div class="s">Fit ${r.sc.fit} · Potencial ${r.sc.potencial} · ${esc(r.idea.segmento)}</div></div>
           </div>`).join('')}
       </div>` : ''}`;
   }
-
-  const isLast = step === total - 1;
-  const nextLabel = isLast ? '🚀 Começar agora' : 'Próximo';
-
+  const isLast = step === total-1;
   return `
   <div class="onb-wrap">
     <div class="onb-card">
       <div class="onb-progress">${dots}</div>
       ${body}
       <div class="onb-actions">
-        ${step > 0 ? `<button class="btn btn-ghost" data-action="onb-back">Voltar</button>` : ''}
-        <button class="btn btn-primary" data-action="onb-next" style="flex:${step>0?'1':'1'}">${nextLabel}</button>
+        ${step>0 ? `<button class="btn btn-ghost" data-action="onb-back">Voltar</button>` : ''}
+        <button class="btn btn-primary" data-action="onb-next">${isLast?'🚀 Começar agora':'Próximo'}</button>
       </div>
       <button class="onb-skip" data-action="onb-skip">Pular e usar valores padrão</button>
     </div>
@@ -929,7 +875,7 @@ function viewOnboarding(){
 }
 
 /* =========================================================================
-   12. RENDER — TELAS PRINCIPAIS
+   VIEWS
    ========================================================================= */
 function emptyHTML(msg){ return `<div class="empty"><div class="big">🗒️</div><p>${esc(msg)}</p></div>`; }
 
@@ -946,9 +892,11 @@ function ideaRowHTML(r){
       <h4>${esc(i.titulo)} ${statusTagHtml}</h4>
       <p>${esc(i.descricao||'')}</p>
       <div class="tags">
+        <span class="subscore fit">FIT ${sc.fit}</span>
+        <span class="subscore pot">POT ${sc.potencial}</span>
+        <span class="tag lbl-${sc.label.cls.replace('lbl-','')}">${esc(sc.label.text)}</span>
         <span class="tag">${esc(i.segmento||'')}</span>
-        <span class="tag">${esc(i.categoria||'')}</span>
-        ${sc.penalizado ? '<span class="tag warn">⚠ parecida com uma descartada (−20)</span>' : ''}
+        ${sc.penalizado ? '<span class="tag warn">⚠ −20 similar</span>' : ''}
       </div>
     </div>
   </div>`;
@@ -964,18 +912,17 @@ function viewPainel(){
   const { usandoPadrao } = perfilVals();
   const top5 = ranked.slice(0,5);
   const proximos = pend.slice(0,6);
-
   return `
   <div class="page-head">
-    <div><h2>Painel</h2><p>As melhores oportunidades para o seu perfil e o andamento dos seus planos.</p></div>
+    <div><h2>Painel</h2><p>Cada ideia agora tem <b>duas notas</b>: o quanto ela cabe em você (Fit) e o quanto pode render (Potencial).</p></div>
     <button class="btn btn-primary" data-action="nav" data-screen="banco">Ver banco de ideias</button>
   </div>
 
   ${usandoPadrao ? `
   <div class="card" style="padding:14px 18px;margin-bottom:20px;border-left:4px solid var(--amber);display:flex;gap:14px;align-items:center;flex-wrap:wrap">
     <div style="flex:1;min-width:200px">
-      <b style="font-size:14px">Preencha seu perfil para notas mais precisas</b>
-      <div style="font-size:13px;color:var(--muted)">Hoje as notas usam valores padrão: R$ 1.000 de investimento e 10 horas por semana.</div>
+      <b style="font-size:14px">Preencha seu perfil para notas precisas</b>
+      <div style="font-size:13px;color:var(--muted)">Hoje usamos R$ 1.000 de investimento e 10h/semana como padrão.</div>
     </div>
     <button class="btn btn-ghost btn-sm" data-action="nav" data-screen="perfil">Preencher perfil</button>
   </div>` : ''}
@@ -988,26 +935,16 @@ function viewPainel(){
   </div>
 
   <div class="section-title">🏆 Top 5 ideias por nota</div>
-  <div class="card">
-    ${top5.length ? top5.map(ideaRowHTML).join('') : emptyHTML('Nenhuma ideia no banco ainda.')}
-  </div>
+  <div class="card">${top5.length ? top5.map(ideaRowHTML).join('') : emptyHTML('Nenhuma ideia no banco ainda.')}</div>
 
-  <div class="section-title">⏰ Próximas etapas e lembretes ${atrasadas ? `<span class="tag warn">${atrasadas} atrasada(s)</span>`:''}</div>
+  <div class="section-title">⏰ Próximas etapas ${atrasadas ? `<span class="tag warn">${atrasadas} atrasada(s)</span>`:''}</div>
   <div class="card">
     ${proximos.length ? proximos.map(p=>{
-      const cls = p.dias < 0 ? 'late' : 'soon';
-      const label = p.dias < 0 ? `${Math.abs(p.dias)} dia(s) atrasada` : p.dias===0 ? 'vence hoje' : `vence em ${p.dias} dia(s)`;
-      const badge = p.dias < 0 ? 'due-late' : 'due-soon';
-      return `
-        <div class="rem">
-          <span class="dot ${cls}"></span>
-          <div class="txt">
-            <b>${esc(p.etapa.titulo)}</b>
-            <span>${esc(p.plano.titulo||'')} · ${fmtDate(p.etapa.prazo)}</span>
-          </div>
-          <span class="due-badge ${badge}">${label}</span>
-        </div>`;
-    }).join('') : emptyHTML('Nada por aqui. Aprove uma ideia para gerar um plano com etapas e prazos.')}
+      const cls = p.dias<0?'late':'soon';
+      const label = p.dias<0?`${Math.abs(p.dias)} dia(s) atrasada`:p.dias===0?'vence hoje':`vence em ${p.dias} dia(s)`;
+      const badge = p.dias<0?'due-late':'due-soon';
+      return `<div class="rem"><span class="dot ${cls}"></span><div class="txt"><b>${esc(p.etapa.titulo)}</b><span>${esc(p.plano.titulo||'')} · ${fmtDate(p.etapa.prazo)}</span></div><span class="due-badge ${badge}">${label}</span></div>`;
+    }).join('') : emptyHTML('Nada por aqui. Aprove uma ideia para gerar um plano.')}
   </div>`;
 }
 
@@ -1025,35 +962,33 @@ function viewBanco(){
   if(segmento && segmento!=='todos') list = list.filter(i=>i.segmento===segmento);
   let rows = list.map(i=>({idea:i, sc:calcularNota(i)}));
   if(sort==='nota') rows.sort((a,b)=>b.sc.total-a.sc.total);
+  else if(sort==='fit') rows.sort((a,b)=>b.sc.fit-a.sc.fit);
+  else if(sort==='pot') rows.sort((a,b)=>b.sc.potencial-a.sc.potencial);
   else if(sort==='nome') rows.sort((a,b)=>a.idea.titulo.localeCompare(b.idea.titulo,'pt-BR'));
   else if(sort==='invest') rows.sort((a,b)=>a.idea.investimento_min-b.idea.investimento_min);
   const segments = [...new Set(state.ideias.filter(i=>i.status!=='DESCARTADA').map(i=>i.segmento))].sort();
-
   return `
   <div class="page-head">
-    <div><h2>Banco de ideias</h2><p>${rows.length} oportunidade(s) · ordenadas por nota</p></div>
+    <div><h2>Banco de ideias</h2><p>${rows.length} oportunidade(s) · Fit mede o encaixe no seu perfil, Potencial mede o retorno esperado</p></div>
     <button class="btn btn-primary" data-action="nova-ideia">+ Nova ideia</button>
   </div>
   <div class="filters">
-    <input class="input" placeholder="🔎 Buscar por título, descrição ou segmento..." value="${esc(query)}" data-action="f-query">
+    <input class="input" placeholder="🔎 Buscar..." value="${esc(query)}" data-action="f-query">
     <select data-action="f-tipo">
       <option value="todos"${tipo==='todos'?' selected':''}>Todos os tipos</option>
       <option value="digital"${tipo==='digital'?' selected':''}>Digital</option>
       <option value="fisico"${tipo==='fisico'?' selected':''}>Produto físico</option>
     </select>
-    <select data-action="f-segmento">
-      <option value="todos">Todos os segmentos</option>
-      ${segments.map(s=>`<option value="${esc(s)}"${segmento===s?' selected':''}>${esc(s)}</option>`).join('')}
-    </select>
+    <select data-action="f-segmento"><option value="todos">Todos os segmentos</option>${segments.map(s=>`<option value="${esc(s)}"${segmento===s?' selected':''}>${esc(s)}</option>`).join('')}</select>
     <select data-action="f-sort">
-      <option value="nota"${sort==='nota'?' selected':''}>Ordenar por nota</option>
-      <option value="nome"${sort==='nome'?' selected':''}>Ordenar por nome</option>
+      <option value="nota"${sort==='nota'?' selected':''}>Nota final</option>
+      <option value="fit"${sort==='fit'?' selected':''}>Maior Fit</option>
+      <option value="pot"${sort==='pot'?' selected':''}>Maior Potencial</option>
+      <option value="nome"${sort==='nome'?' selected':''}>Nome</option>
       <option value="invest"${sort==='invest'?' selected':''}>Menor investimento</option>
     </select>
   </div>
-  <div class="card">
-    ${rows.length ? rows.map(ideaRowHTML).join('') : emptyHTML('Nenhuma ideia encontrada com esses filtros.')}
-  </div>`;
+  <div class="card">${rows.length ? rows.map(ideaRowHTML).join('') : emptyHTML('Nenhuma ideia encontrada.')}</div>`;
 }
 
 function viewDetalhe(){
@@ -1063,11 +998,14 @@ function viewDetalhe(){
   const plano = planoDaIdeia(idea.id);
   const reqs = skillsArr(idea.habilidades);
   const minhas = skillsArr(state.perfil?.habilidades||'');
-
+  const fitPartes = sc.partes.filter(p=>p.grupo==='fit');
+  const potPartes = sc.partes.filter(p=>p.grupo==='pot');
+  const vel = Number(idea.tempo_primeiro_real)||3;
+  const velLabel = vel<=1?'em dias':vel<=2?'em 1–2 semanas':vel<=3?'em 1 mês':vel<=4?'em 2–3 meses':'em 4+ meses';
   return `
   <div class="page-head">
     <div>
-      <button class="btn btn-ghost btn-sm" data-action="nav" data-screen="banco" style="margin-bottom:10px">← Voltar ao banco</button>
+      <button class="btn btn-ghost btn-sm" data-action="nav" data-screen="banco" style="margin-bottom:10px">← Voltar</button>
       <h2>${esc(idea.titulo)}</h2>
       <p>${esc(idea.segmento)} · ${esc(idea.categoria)}</p>
     </div>
@@ -1077,41 +1015,62 @@ function viewDetalhe(){
   <div class="detail-hero">
     <div class="score ${scoreClass(sc.total)}" style="background:rgba(255,255,255,.95);width:84px;height:84px;font-size:27px">${sc.total}<small>/100</small></div>
     <div style="flex:1;min-width:240px">
-      <h3>Nota ${sc.total} de 100</h3>
+      <h3>${esc(sc.label.text)} <span style="font-weight:600;font-size:15px;color:#a9b6c9">· nota ${sc.total}/100</span></h3>
       <p>${esc(idea.descricao||'')}</p>
       <div class="tags" style="margin-top:12px">
         <span class="tag" style="background:rgba(255,255,255,.14);color:#fff">${esc(idea.segmento)}</span>
         <span class="tag" style="background:rgba(255,255,255,.14);color:#fff">Investimento ${idea.investimento_min>0?money(idea.investimento_min):'zero'}</span>
         <span class="tag" style="background:rgba(255,255,255,.14);color:#fff">${idea.horas_semana}h/semana</span>
-        ${sc.penalizado ? '<span class="tag warn">⚠ −20 por similaridade</span>' : ''}
+        <span class="tag" style="background:rgba(255,255,255,.14);color:#fff">Retorno ${velLabel}</span>
+        ${sc.penalizado ? '<span class="tag warn">⚠ −20 similar a descartada</span>' : ''}
       </div>
-      ${idea.retorno_estimado ? `<p style="margin-top:10px;font-size:13px;color:#a9b6c9"><b style="color:#fff">Retorno estimado:</b> ${esc(idea.retorno_estimado)}</p>` : ''}
+      ${idea.retorno_estimado ? `<p style="margin-top:10px;font-size:13px;color:#a9b6c9"><b style="color:#fff">Retorno:</b> ${esc(idea.retorno_estimado)}</p>` : ''}
     </div>
   </div>
 
-  ${sc.penalizado ? `
-  <div class="card" style="padding:14px 18px;margin-bottom:20px;border-left:4px solid var(--red)">
-    <b style="font-size:14px">Ideia parecida com uma que você descartou</b>
-    <div style="font-size:13px;color:var(--muted)">O segmento <b>${esc(idea.segmento)}</b> já foi descartado antes, então esta ideia perdeu 20 pontos.</div>
-  </div>` : ''}
+  <div class="duel">
+    <div class="duel-card">
+      <div class="duel-ring fit">${sc.fit}</div>
+      <div class="duel-txt">
+        <b>Fit — encaixe no seu perfil</b>
+        <span>O quanto essa ideia cabe no seu investimento, tempo e habilidades.</span>
+      </div>
+    </div>
+    <div class="duel-card">
+      <div class="duel-ring pot">${sc.potencial}</div>
+      <div class="duel-txt">
+        <b>Potencial — retorno esperado</b>
+        <span>Tamanho do mercado, concorrência e velocidade até o primeiro real.</span>
+      </div>
+    </div>
+  </div>
 
-  <div class="section-title">🧮 De onde vem a nota</div>
-  <div class="card" style="padding:6px 20px 12px">
-    ${sc.partes.map(p=>`
+  <div class="card" style="padding:6px 20px 14px">
+    <div class="crit-group fit"><span class="dot"></span>Fit — peso 40% na nota final</div>
+    ${fitPartes.map(p=>`
       <div class="crit">
         <div class="cname">${esc(p.label)}<small>${esc(p.nota)}</small></div>
-        <div class="bar"><i style="width:${Math.max(2,(p.pts/p.max)*100)}%"></i></div>
+        <div class="bar"><i class="fit" style="width:${Math.max(2,(p.pts/p.max)*100)}%"></i></div>
         <div class="pts">${p.pts.toFixed(1)} / ${p.max}</div>
-      </div>
-    `).join('')}
-    ${sc.penalizado ? `
+      </div>`).join('')}
+
+    <div class="crit-group pot"><span class="dot"></span>Potencial — peso 60% na nota final</div>
+    ${potPartes.map(p=>`
       <div class="crit">
+        <div class="cname">${esc(p.label)}<small>${esc(p.nota)}</small></div>
+        <div class="bar"><i class="pot" style="width:${Math.max(2,(p.pts/p.max)*100)}%"></i></div>
+        <div class="pts">${p.pts.toFixed(1)} / ${p.max}</div>
+      </div>`).join('')}
+
+    ${sc.penalizado ? `
+      <div class="crit" style="border-top:2px solid var(--line);margin-top:10px">
         <div class="cname" style="color:var(--red)">Penalidade<small>Similar a uma ideia descartada</small></div>
         <div class="bar"><i style="width:100%;background:linear-gradient(90deg,#e04b4b,#f08080)"></i></div>
         <div class="pts" style="color:var(--red)">−20</div>
       </div>` : ''}
-    <div class="crit" style="border-top:2px solid var(--line);margin-top:6px">
-      <div class="cname" style="font-size:15px">Total</div>
+
+    <div class="crit" style="border-top:2px solid var(--line);margin-top:10px">
+      <div class="cname" style="font-size:15px">Nota final <small>√(Fit × Potencial), com penalidades</small></div>
       <div class="bar"></div>
       <div class="pts" style="font-size:17px">${sc.total} / 100</div>
     </div>
@@ -1122,8 +1081,10 @@ function viewDetalhe(){
   <div class="card" style="padding:16px 20px">
     <div class="chips">
       ${reqs.map(s=>{
-        const has = minhas.includes(s);
-        return `<span class="chip ${has?'on':''}" style="cursor:default">${has?'✓ ':''}${esc(s)}</span>`;
+        const lvl = skillLevel(s);
+        const cls = lvl===0?'lvl-0':lvl<0.5?'lvl-1':lvl<0.9?'lvl-2':'lvl-3';
+        const lvlTxt = lvl===0?'(não tenho)':lvl<0.5?'(básico)':lvl<0.9?'(intermediário)':'(avançado)';
+        return `<span class="chip ${cls}" style="cursor:default">${esc(s)} ${lvlTxt}</span>`;
       }).join('')}
     </div>
   </div>` : ''}
@@ -1144,45 +1105,47 @@ function viewDetalhe(){
 function viewPerfil(){
   const p = state.perfil || {};
   const skills = skillsArr(p.habilidades);
+  const niveis = p.habilidades_nivel || {};
   const extras = skills.filter(s => !SKILL_LIST.map(x=>x.toLowerCase()).includes(s));
-
+  const lvlOf = (s)=>{
+    const key = s.toLowerCase();
+    if(!skills.includes(key)) return 0;
+    const n = niveis[key];
+    if(n==='avancado') return 3;
+    if(n==='intermediario') return 2;
+    if(n==='basico') return 1;
+    return 2;
+  };
+  const chipHTML = (s, display)=>{
+    const lvl = lvlOf(s);
+    const suffix = lvl===0?'':lvl===1?' · B':lvl===2?' · M':' · A';
+    return `<button type="button" class="chip lvl-${lvl}" data-action="toggle-skill" data-skill="${esc(s)}" data-level="${lvl}">${esc(display)}${suffix}</button>`;
+  };
   return `
   <div class="page-head">
-    <div><h2>Meu perfil</h2><p>É com estas informações que cada ideia recebe a sua nota.</p></div>
+    <div><h2>Meu perfil</h2><p>Clique nas habilidades para marcar. Clique de novo para subir o nível: <b>B</b>ásico → <b>M</b>édio → <b>A</b>vançado.</p></div>
   </div>
 
   <div class="card" style="padding:24px">
     <div class="grid2">
-      <div class="field">
-        <label>Investimento inicial disponível <span class="hint">em R$</span></label>
-        <input class="input" type="number" min="0" step="50" placeholder="1000" value="${p.investimento ?? ''}" id="p-invest">
-      </div>
-      <div class="field">
-        <label>Tempo livre por semana <span class="hint">em horas</span></label>
-        <input class="input" type="number" min="1" max="168" step="1" placeholder="10" value="${p.horas_semana ?? ''}" id="p-hours">
-      </div>
+      <div class="field"><label>Investimento disponível <span class="hint">R$</span></label><input class="input" type="number" min="0" step="50" placeholder="1000" value="${p.investimento ?? ''}" id="p-invest"></div>
+      <div class="field"><label>Tempo livre por semana <span class="hint">horas</span></label><input class="input" type="number" min="1" max="168" step="1" placeholder="10" value="${p.horas_semana ?? ''}" id="p-hours"></div>
     </div>
-
     <div class="field">
-      <label>Habilidades <span class="hint">clique para marcar as suas</span></label>
+      <label>Habilidades <span class="hint">clique 1× = básico · 2× = médio · 3× = avançado · 4× = desmarcar</span></label>
       <div class="chips" id="p-skills">
-        ${SKILL_LIST.map(s=>{
-          const on = skills.includes(s.toLowerCase());
-          return `<button type="button" class="chip ${on?'on':''}" data-action="toggle-skill" data-skill="${esc(s)}">${esc(s)}</button>`;
-        }).join('')}
-        ${extras.map(s=>`<button type="button" class="chip on" data-action="toggle-skill" data-skill="${esc(s)}">${esc(s)} ✕</button>`).join('')}
+        ${SKILL_LIST.map(s=>chipHTML(s.toLowerCase(), s)).join('')}
+        ${extras.map(s=>chipHTML(s, s)).join('')}
       </div>
       <div style="display:flex;gap:9px;margin-top:12px">
         <input class="input" placeholder="Outra habilidade..." id="new-skill">
         <button class="btn btn-ghost" data-action="add-skill">Adicionar</button>
       </div>
     </div>
-
     <div class="field">
-      <label>Experiência <span class="hint">o que você já fez, trabalhos, cursos</span></label>
-      <textarea id="p-exp" placeholder="Ex.: já vendi doces por 2 anos, sei mexer com Photoshop, trabalhei com atendimento...">${esc(p.experiencia||'')}</textarea>
+      <label>Experiência <span class="hint">o que você já fez</span></label>
+      <textarea id="p-exp" placeholder="Ex.: já vendi doces por 2 anos...">${esc(p.experiencia||'')}</textarea>
     </div>
-
     <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:6px">
       <span style="font-size:12.5px;color:var(--muted);flex:1">Campos vazios usam R$ 1.000 e 10h/semana como padrão.</span>
       <button class="btn btn-ghost" data-action="reset-perfil">Limpar</button>
@@ -1197,12 +1160,10 @@ function viewExecucao(){
     return (order[a.status]??9)-(order[b.status]??9) || b.id - a.id;
   });
   return `
-  <div class="page-head">
-    <div><h2>Execução</h2><p>Cada ideia aprovada vira um plano com etapas, prazos e lembretes.</p></div>
-  </div>
+  <div class="page-head"><div><h2>Execução</h2><p>Cada ideia aprovada vira um plano com etapas, prazos e lembretes.</p></div></div>
   ${plans.length ? plans.map(planHTML).join('') : `
-    <div class="card">${emptyHTML('Nenhum plano ainda. Escolha uma ideia no banco e clique em "Aprovar para execução".')}
-      <div style="text-align:center;padding-bottom:24px"><button class="btn btn-primary" data-action="nav" data-screen="banco">Ir para o banco de ideias</button></div>
+    <div class="card">${emptyHTML('Nenhum plano ainda. Aprove uma ideia no banco para gerar o primeiro.')}
+      <div style="text-align:center;padding-bottom:24px"><button class="btn btn-primary" data-action="nav" data-screen="banco">Ir para o banco</button></div>
     </div>`}`;
 }
 
@@ -1212,9 +1173,7 @@ function planHTML(p){
   const done = etapas.filter(e=>e.concluida).length;
   const pct = total ? Math.round((done/total)*100) : 0;
   const abertas = state.ui.planOpen[p.id];
-  const badge = p.status==='PAUSADO' ? '<span class="tag analise">Pausado</span>' :
-                p.status==='CONCLUIDO' ? '<span class="tag ok">Concluído</span>' :
-                p.status==='CANCELADO' ? '<span class="tag warn">Cancelado</span>' : '';
+  const badge = p.status==='PAUSADO'?'<span class="tag analise">Pausado</span>':p.status==='CONCLUIDO'?'<span class="tag ok">Concluído</span>':p.status==='CANCELADO'?'<span class="tag warn">Cancelado</span>':'';
   return `
   <div class="card plan">
     <div class="plan-head" data-action="toggle-plan" data-id="${p.id}">
@@ -1222,27 +1181,25 @@ function planHTML(p){
       <div style="flex:1;min-width:0">
         <h4>${esc(p.titulo||'(sem título)')} ${badge}</h4>
         <div style="font-size:12.5px;color:var(--muted)">${done} de ${total} etapas · início ${fmtDate(p.inicio)}</div>
-        <div class="bar" style="height:7px;background:#eef2f8;border-radius:20px;overflow:hidden;margin-top:8px;max-width:340px">
-          <i style="display:block;height:100%;width:${pct}%;background:linear-gradient(90deg,#1D9D6C,#28A7F8);border-radius:20px"></i>
-        </div>
+        <div class="bar" style="height:7px;background:#eef2f8;border-radius:20px;overflow:hidden;margin-top:8px;max-width:340px"><i style="display:block;height:100%;width:${pct}%;background:linear-gradient(90deg,#1D9D6C,#28A7F8);border-radius:20px"></i></div>
       </div>
       <span style="font-size:13px;color:var(--muted)">${abertas?'▾':'▸'}</span>
     </div>
     ${abertas ? `
     <div class="plan-body">
-      ${etapas.length ? etapas.map(e=>stepHTML(p, e)).join('') : '<p style="color:var(--muted);font-size:13.5px;padding:8px 0">Sem etapas ainda.</p>'}
+      ${etapas.length ? etapas.map(e=>stepHTML(p,e)).join('') : '<p style="color:var(--muted);font-size:13.5px;padding:8px 0">Sem etapas ainda.</p>'}
       <div style="display:flex;gap:9px;margin-top:14px;flex-wrap:wrap">
         <input class="input" placeholder="Nova etapa..." id="new-step-${p.id}" style="flex:1;min-width:180px">
         <input class="input" type="date" id="new-due-${p.id}" style="width:150px;flex:0 0 150px">
         <button class="btn btn-ghost btn-sm" data-action="add-step" data-plan="${p.id}">+ Adicionar</button>
       </div>
       <div style="display:flex;gap:9px;margin-top:16px;padding-top:14px;border-top:1px solid var(--line);flex-wrap:wrap">
-        ${p.status==='ATIVO'   ? `<button class="btn btn-ghost btn-sm" data-action="pausar" data-plan="${p.id}">⏸ Pausar plano</button>` : ''}
-        ${p.status==='PAUSADO' ? `<button class="btn btn-ghost btn-sm" data-action="reativar" data-plan="${p.id}">▶ Retomar plano</button>` : ''}
-        ${p.status!=='CONCLUIDO' && p.status!=='CANCELADO' ? `<button class="btn btn-primary btn-sm" data-action="concluir" data-plan="${p.id}">🏁 Concluir plano</button>` : ''}
-        <button class="btn btn-danger btn-sm" data-action="del-plan" data-plan="${p.id}" style="margin-left:auto">Excluir plano</button>
+        ${p.status==='ATIVO'?`<button class="btn btn-ghost btn-sm" data-action="pausar" data-plan="${p.id}">⏸ Pausar</button>`:''}
+        ${p.status==='PAUSADO'?`<button class="btn btn-ghost btn-sm" data-action="reativar" data-plan="${p.id}">▶ Retomar</button>`:''}
+        ${p.status!=='CONCLUIDO'&&p.status!=='CANCELADO'?`<button class="btn btn-primary btn-sm" data-action="concluir" data-plan="${p.id}">🏁 Concluir</button>`:''}
+        <button class="btn btn-danger btn-sm" data-action="del-plan" data-plan="${p.id}" style="margin-left:auto">Excluir</button>
       </div>
-    </div>` : ''}
+    </div>`:''}
   </div>`;
 }
 
@@ -1256,74 +1213,58 @@ function stepHTML(p, e){
   })();
   return `
   <div class="step ${e.concluida?'done':''}">
-    <input type="checkbox" ${e.concluida?'checked':''} data-action="toggle-step" data-plan="${p.id}" data-step="${e.id}">
+    <input type="checkbox" ${e.concluida?'checked':''} data-action="toggle-step" data-step="${e.id}">
     <input class="step-title" value="${esc(e.titulo)}" data-action="edit-title" data-step="${e.id}">
     ${badge}
     <input type="date" value="${e.prazo||''}" data-action="edit-due" data-step="${e.id}">
-    <button class="ico-btn ${e.lembrete?'on':''}" title="${e.lembrete?'Lembrete ligado':'Lembrete desligado'}" data-action="toggle-rem" data-step="${e.id}">${e.lembrete?'🔔':'🔕'}</button>
-    <button class="ico-btn" title="Remover etapa" data-action="del-step" data-step="${e.id}">✕</button>
+    <button class="ico-btn ${e.lembrete?'on':''}" data-action="toggle-rem" data-step="${e.id}">${e.lembrete?'🔔':'🔕'}</button>
+    <button class="ico-btn" data-action="del-step" data-step="${e.id}">✕</button>
   </div>`;
 }
 
 function viewDescartadas(){
-  const list = state.ideias.filter(i=>i.status==='DESCARTADA')
-    .sort((a,b)=>(b.descartada_em||'').localeCompare(a.descartada_em||''));
+  const list = state.ideias.filter(i=>i.status==='DESCARTADA').sort((a,b)=>(b.descartada_em||'').localeCompare(a.descartada_em||''));
   return `
-  <div class="page-head">
-    <div><h2>Histórico de descartadas</h2><p>Ideias do mesmo segmento destas passam a receber 20 pontos a menos na nota.</p></div>
-  </div>
-  ${list.length ? `
-  <div class="card">
-    ${list.map(i=>{
-      const sameSeg = state.ideias.filter(x=>x.segmento===i.segmento && x.status!=='DESCARTADA').length;
-      return `
+  <div class="page-head"><div><h2>Descartadas</h2><p>Ideias do mesmo segmento destas passam a receber 20 pontos a menos na nota.</p></div></div>
+  ${list.length ? `<div class="card">${list.map(i=>{
+    const sameSeg = state.ideias.filter(x=>x.segmento===i.segmento && x.status!=='DESCARTADA').length;
+    return `
       <div style="padding:16px 18px;border-bottom:1px solid var(--line);display:flex;gap:16px;align-items:flex-start;flex-wrap:wrap">
         <div style="flex:1;min-width:220px">
           <h4 style="font-size:15.5px;font-weight:700">${esc(i.titulo)}</h4>
-          <div class="tags" style="margin-top:6px">
-            <span class="tag">${esc(i.segmento)}</span>
-            <span class="tag">descartada em ${fmtDate((i.descartada_em||'').slice(0,10))}</span>
-          </div>
+          <div class="tags" style="margin-top:6px"><span class="tag">${esc(i.segmento)}</span><span class="tag">em ${fmtDate((i.descartada_em||'').slice(0,10))}</span></div>
           <div style="margin-top:10px;font-size:13.5px;background:#f7f9fc;border-left:3px solid #cfd9e8;padding:9px 12px;border-radius:0 8px 8px 0">
-            <b style="font-size:12px;text-transform:uppercase;letter-spacing:.5px;color:var(--muted)">Motivo</b><br>
-            ${esc(i.motivo_descarte || '—')}
+            <b style="font-size:12px;text-transform:uppercase;letter-spacing:.5px;color:var(--muted)">Motivo</b><br>${esc(i.motivo_descarte || '—')}
           </div>
-          ${sameSeg ? `<div style="font-size:12.5px;color:var(--muted);margin-top:8px">${sameSeg} ideia(s) do mesmo segmento ainda no banco (com −20 pontos).</div>` : ''}
+          ${sameSeg?`<div style="font-size:12.5px;color:var(--muted);margin-top:8px">${sameSeg} ideia(s) do mesmo segmento ainda no banco (com −20).</div>`:''}
         </div>
-        <button class="btn btn-ghost btn-sm" data-action="restaurar" data-id="${i.id}">↩ Trazer de volta</button>
+        <button class="btn btn-ghost btn-sm" data-action="restaurar" data-id="${i.id}">↩ Trazer</button>
       </div>`;
-    }).join('')}
-  </div>` : `<div class="card">${emptyHTML('Nenhuma ideia descartada. Quando descartar uma, ela aparece aqui com o motivo.')}</div>`}`;
+  }).join('')}</div>` : `<div class="card">${emptyHTML('Nenhuma ideia descartada ainda.')}</div>`}`;
 }
 
 /* =========================================================================
-   13. RENDER PRINCIPAL
+   RENDER
    ========================================================================= */
 function render(){
   if(!state.user) return;
-  // NOVO: onboarding primeiro
-  if(state.ui.onboarding){
-    $('#root').innerHTML = viewOnboarding();
-    return;
-  }
-  const shell = `
+  if(state.ui.onboarding){ $('#root').innerHTML = viewOnboarding(); return; }
+  $('#root').innerHTML = `
     <div class="app">
       <aside class="sidebar" id="nav">${renderNav()}</aside>
       <main class="main"><div class="wrap" id="view"></div></main>
     </div>`;
-  $('#root').innerHTML = shell;
   const v = $('#view');
   switch(state.ui.screen){
-    case 'painel':      v.innerHTML = viewPainel(); break;
-    case 'banco':       v.innerHTML = viewBanco(); break;
-    case 'detalhe':     v.innerHTML = viewDetalhe(); break;
-    case 'perfil':      v.innerHTML = viewPerfil(); break;
-    case 'execucao':    v.innerHTML = viewExecucao(); break;
+    case 'painel': v.innerHTML = viewPainel(); break;
+    case 'banco': v.innerHTML = viewBanco(); break;
+    case 'detalhe': v.innerHTML = viewDetalhe(); break;
+    case 'perfil': v.innerHTML = viewPerfil(); break;
+    case 'execucao': v.innerHTML = viewExecucao(); break;
     case 'descartadas': v.innerHTML = viewDescartadas(); break;
-    default:            v.innerHTML = viewPainel();
+    default: v.innerHTML = viewPainel();
   }
 }
-
 function go(screen, ideaId){
   state.ui.screen = screen;
   if(ideaId !== undefined) state.ui.ideaId = ideaId;
@@ -1332,7 +1273,7 @@ function go(screen, ideaId){
 }
 
 /* =========================================================================
-   14. MODAIS
+   MODAIS
    ========================================================================= */
 function openModal(html){ $('#modal-root').innerHTML = `<div class="modal-bg" data-bg><div class="modal" data-modal>${html}</div></div>`; }
 function closeModal(){ $('#modal-root').innerHTML = ''; }
@@ -1343,15 +1284,8 @@ function modalDescarte(id){
   openModal(`
     <div class="modal-head"><h3>Descartar ideia</h3><button class="x" data-action="close-modal">✕</button></div>
     <div class="modal-body">
-      <p style="font-size:14px;color:var(--muted);margin-bottom:16px">
-        <b style="color:var(--ink)">${esc(idea.titulo)}</b> vai para o histórico. Ideias futuras do segmento
-        <b style="color:var(--ink)">${esc(idea.segmento)}</b> perdem 20 pontos.
-        ${planoDaIdeia(id) ? '<br><br><b style="color:var(--red)">O plano em execução desta ideia será cancelado.</b>' : ''}
-      </p>
-      <div class="field">
-        <label>Por que você está descartando?</label>
-        <textarea id="desc-reason" placeholder="Ex.: concorrência muito alta, não tenho fornecedor, investimento fora do meu bolso..."></textarea>
-      </div>
+      <p style="font-size:14px;color:var(--muted);margin-bottom:16px"><b style="color:var(--ink)">${esc(idea.titulo)}</b> vai para o histórico. Ideias futuras do segmento <b style="color:var(--ink)">${esc(idea.segmento)}</b> perdem 20 pontos.</p>
+      <div class="field"><label>Por que está descartando?</label><textarea id="desc-reason" placeholder="Ex.: concorrência muito alta, investimento fora do bolso..."></textarea></div>
     </div>
     <div class="modal-foot">
       <button class="btn btn-ghost" data-action="close-modal">Cancelar</button>
@@ -1362,146 +1296,113 @@ function modalDescarte(id){
 
 function modalIdeia(id){
   const editing = id ? state.ideias.find(i=>i.id===id) : null;
-  const i = editing || {titulo:'',categoria:'',segmento:'',descricao:'',investimento_min:0,horas_semana:8,habilidades:'',concorrencia:3,mercado:3,retorno_estimado:''};
+  const i = editing || {titulo:'',categoria:'',segmento:'',descricao:'',investimento_min:0,horas_semana:8,habilidades:'',concorrencia:3,mercado:3,retorno_estimado:'',tempo_primeiro_real:3};
   const segments = [...new Set(state.ideias.map(x=>x.segmento))].sort();
   const skills = skillsArr(i.habilidades);
   const skillList = [...new Set([...SKILL_LIST.map(s=>s.toLowerCase()), ...skills])];
   openModal(`
-    <div class="modal-head"><h3>${editing ? 'Editar ideia' : 'Nova ideia'}</h3><button class="x" data-action="close-modal">✕</button></div>
+    <div class="modal-head"><h3>${editing?'Editar ideia':'Nova ideia'}</h3><button class="x" data-action="close-modal">✕</button></div>
     <div class="modal-body">
-      <div class="field"><label>Título</label><input class="input" id="fi-titulo" value="${esc(i.titulo)}" placeholder="Ex.: Aulas de reforço escolar online"></div>
+      <div class="field"><label>Título</label><input class="input" id="fi-titulo" value="${esc(i.titulo)}" placeholder="Ex.: Aulas de reforço online"></div>
       <div class="grid2">
         <div class="field"><label>Categoria</label><input class="input" id="fi-categoria" value="${esc(i.categoria)}" placeholder="Ex.: Serviços digitais"></div>
         <div class="field"><label>Segmento</label><input class="input" id="fi-segmento" list="seg-list" value="${esc(i.segmento)}" placeholder="Ex.: Educação"><datalist id="seg-list">${segments.map(s=>`<option value="${esc(s)}">`).join('')}</datalist></div>
       </div>
-      <div class="field"><label>Descrição curta</label><textarea id="fi-desc" placeholder="Como funciona e para quem é?">${esc(i.descricao)}</textarea></div>
+      <div class="field"><label>Descrição</label><textarea id="fi-desc" placeholder="Como funciona e para quem é?">${esc(i.descricao)}</textarea></div>
       <div class="grid2">
-        <div class="field"><label>Investimento inicial <span class="hint">R$</span></label><input class="input" type="number" min="0" step="50" id="fi-inv" value="${i.investimento_min||0}"></div>
-        <div class="field"><label>Horas por semana</label><input class="input" type="number" min="1" max="168" step="1" id="fi-hours" value="${i.horas_semana||8}"></div>
+        <div class="field"><label>Investimento <span class="hint">R$</span></label><input class="input" type="number" min="0" step="50" id="fi-inv" value="${i.investimento_min||0}"></div>
+        <div class="field"><label>Horas/semana</label><input class="input" type="number" min="1" max="168" step="1" id="fi-hours" value="${i.horas_semana||8}"></div>
       </div>
       <div class="grid2">
         <div class="field"><label>Concorrência <span class="hint">1=baixa, 5=alta</span></label><select id="fi-comp">${[1,2,3,4,5].map(n=>`<option value="${n}"${i.concorrencia===n?' selected':''}>${n}</option>`).join('')}</select></div>
         <div class="field"><label>Mercado <span class="hint">1=nicho, 5=amplo</span></label><select id="fi-market">${[1,2,3,4,5].map(n=>`<option value="${n}"${i.mercado===n?' selected':''}>${n}</option>`).join('')}</select></div>
       </div>
-      <div class="field"><label>Retorno estimado <span class="hint">opcional</span></label><input class="input" id="fi-retorno" value="${esc(i.retorno_estimado)}" placeholder="Ex.: R$ 500 a R$ 2.000 por mês"></div>
+      <div class="field">
+        <label>Velocidade até o 1º real <span class="hint">1 = dias · 5 = 4 meses ou mais</span></label>
+        <select id="fi-vel">
+          <option value="1"${i.tempo_primeiro_real===1?' selected':''}>1 — em dias</option>
+          <option value="2"${i.tempo_primeiro_real===2?' selected':''}>2 — em 1–2 semanas</option>
+          <option value="3"${i.tempo_primeiro_real===3?' selected':''}>3 — em 1 mês</option>
+          <option value="4"${i.tempo_primeiro_real===4?' selected':''}>4 — em 2–3 meses</option>
+          <option value="5"${i.tempo_primeiro_real===5?' selected':''}>5 — em 4+ meses</option>
+        </select>
+      </div>
+      <div class="field"><label>Retorno estimado <span class="hint">descrição livre</span></label><input class="input" id="fi-retorno" value="${esc(i.retorno_estimado)}" placeholder="Ex.: R$ 500 a R$ 2.000 por mês"></div>
       <div class="field"><label>Habilidades necessárias</label><div class="chips" id="fi-skills">${skillList.map(s=>`<button type="button" class="chip ${skills.includes(s)?'on':''}" data-action="fi-toggle-skill" data-skill="${esc(s)}">${esc(s)}</button>`).join('')}</div></div>
     </div>
     <div class="modal-foot">
       <button class="btn btn-ghost" data-action="close-modal">Cancelar</button>
-      <button class="btn btn-primary" data-action="salvar-ideia" data-id="${editing?editing.id:''}">${editing?'Salvar alterações':'Criar ideia'}</button>
+      <button class="btn btn-primary" data-action="salvar-ideia" data-id="${editing?editing.id:''}">${editing?'Salvar':'Criar'}</button>
     </div>`);
   setTimeout(()=>$('#fi-titulo')?.focus(), 50);
 }
 
 /* =========================================================================
-   15. AÇÕES
+   AÇÕES
    ========================================================================= */
 async function aprovarIdeia(id){
-  try{
-    state.ui.busy = true;
-    await criarPlano(id);
-    toast('Ideia aprovada! Plano criado com 5 etapas.');
-    go('execucao');
-  } catch(err){ toast('Erro ao aprovar: '+err.message, 'err'); }
-  finally { state.ui.busy = false; }
+  try{ await criarPlano(id); toast('Ideia aprovada! Plano criado com 5 etapas.'); go('execucao'); }
+  catch(err){ toast('Erro: '+err.message,'err'); }
 }
 
 async function salvarIdeiaDoModal(id){
   const titulo = $('#fi-titulo').value.trim();
-  if(!titulo){ toast('Dê um título para a ideia.','err'); return; }
+  if(!titulo){ toast('Dê um título.','err'); return; }
   const segmento = $('#fi-segmento').value.trim();
   if(!segmento){ toast('Informe o segmento.','err'); return; }
   const dados = {
-    titulo,
-    categoria: $('#fi-categoria').value.trim() || 'Outros',
-    segmento,
+    titulo, categoria: $('#fi-categoria').value.trim()||'Outros', segmento,
     descricao: $('#fi-desc').value,
     investimento_min: $('#fi-inv').value,
     horas_semana: $('#fi-hours').value,
     concorrencia: $('#fi-comp').value,
     mercado: $('#fi-market').value,
+    tempo_primeiro_real: $('#fi-vel').value,
     retorno_estimado: $('#fi-retorno').value,
     habilidades: [...$$('#fi-skills .chip.on')].map(b=>b.dataset.skill).join(', ')
   };
   try{
-    if(id){ await editarIdeia(id, dados); toast('Ideia atualizada.'); }
-    else   { await criarIdeia(dados);       toast('Ideia adicionada.'); }
+    if(id){ await editarIdeia(id,dados); toast('Ideia atualizada.'); }
+    else { await criarIdeia(dados); toast('Ideia adicionada.'); }
     closeModal(); render();
   } catch(err){ toast(err.message,'err'); }
 }
 
-/* =========================================================================
-   16. AÇÕES — ONBOARDING (NOVO)
-   ========================================================================= */
+/* ---------- Onboarding ---------- */
 function onbSaveFieldsToState(){
-  if(state.ui.onbStep === 0){
-    const el = $('#onb-inv');
-    if(el) state.ui.onbData.investment = el.value === '' ? null : Number(el.value);
-  } else if(state.ui.onbStep === 1){
-    const el = $('#onb-hrs');
-    if(el) state.ui.onbData.hours = el.value === '' ? null : Number(el.value);
-  } else if(state.ui.onbStep === 2){
-    state.ui.onbData.skills = [...$$('#onb-skills .chip.on')].map(b=>b.dataset.skill);
-  }
+  if(state.ui.onbStep === 0){ const el = $('#onb-inv'); if(el) state.ui.onbData.investment = el.value===''?null:Number(el.value); }
+  else if(state.ui.onbStep === 1){ const el = $('#onb-hrs'); if(el) state.ui.onbData.hours = el.value===''?null:Number(el.value); }
+  else if(state.ui.onbStep === 2){ state.ui.onbData.skills = [...$$('#onb-skills .chip.on')].map(b=>b.dataset.skill); }
 }
-
 function onbNext(){
   onbSaveFieldsToState();
   const step = state.ui.onbStep;
-  // valida mínima
-  if(step === 0){
-    const v = state.ui.onbData.investment;
-    if(v !== null && (isNaN(v) || v < 0)){ toast('Informe um valor válido.','err'); return; }
-  }
-  if(step === 1){
-    const v = state.ui.onbData.hours;
-    if(v !== null && (isNaN(v) || v <= 0)){ toast('Informe as horas por semana.','err'); return; }
-  }
-  if(step < 2){
-    state.ui.onbStep = step + 1;
-    render();
-    setTimeout(()=>{
-      const el = state.ui.onbStep === 1 ? $('#onb-hrs') : null;
-      if(el) el.focus();
-    }, 60);
-  } else {
-    onbFinish();
-  }
+  if(step === 0){ const v = state.ui.onbData.investment; if(v!==null && (isNaN(v)||v<0)){ toast('Valor inválido.','err'); return; } }
+  if(step === 1){ const v = state.ui.onbData.hours; if(v!==null && (isNaN(v)||v<=0)){ toast('Horas inválidas.','err'); return; } }
+  if(step < 2){ state.ui.onbStep = step + 1; render(); setTimeout(()=>{ const el = state.ui.onbStep===1?$('#onb-hrs'):null; if(el) el.focus(); }, 60); }
+  else onbFinish();
 }
-
-function onbBack(){
-  onbSaveFieldsToState();
-  if(state.ui.onbStep > 0){
-    state.ui.onbStep -= 1;
-    render();
-  }
-}
-
+function onbBack(){ onbSaveFieldsToState(); if(state.ui.onbStep>0){ state.ui.onbStep -= 1; render(); } }
 async function onbFinish(){
   try{
     await salvarPerfil({
       investimento: state.ui.onbData.investment,
       horas_semana: state.ui.onbData.hours,
       habilidades: (state.ui.onbData.skills||[]).join(', '),
-      experiencia: state.ui.onbData.experience || ''
+      habilidades_nivel: {},
+      experiencia: ''
     });
     markOnboardingDone();
     state.ui.onboarding = false;
     state.ui.screen = 'painel';
     toast('Pronto! Seu radar está calibrado.');
     render();
-  } catch(err){ toast('Erro ao salvar perfil: '+err.message, 'err'); }
+  } catch(err){ toast('Erro ao salvar: '+err.message,'err'); }
 }
-
-function onbSkip(){
-  markOnboardingDone();
-  state.ui.onboarding = false;
-  state.ui.screen = 'painel';
-  render();
-}
+function onbSkip(){ markOnboardingDone(); state.ui.onboarding=false; state.ui.screen='painel'; render(); }
 
 /* =========================================================================
-   17. EVENTOS GLOBAIS
+   EVENTOS
    ========================================================================= */
 document.addEventListener('click', async e => {
   if(e.target.matches('[data-bg]')){ closeModal(); return; }
@@ -1515,26 +1416,25 @@ document.addEventListener('click', async e => {
     case 'ver-ideia': go('detalhe', Number(el.dataset.id)); break;
     case 'nova-ideia': modalIdeia(null); break;
     case 'editar-ideia': modalIdeia(Number(el.dataset.id)); break;
-    case 'salvar-ideia': salvarIdeiaDoModal(el.dataset.id ? Number(el.dataset.id) : null); break;
+    case 'salvar-ideia': salvarIdeiaDoModal(el.dataset.id?Number(el.dataset.id):null); break;
     case 'close-modal': closeModal(); break;
     case 'fi-toggle-skill': el.classList.toggle('on'); break;
     case 'abrir-descarte': modalDescarte(Number(el.dataset.id)); break;
     case 'aprovar': aprovarIdeia(Number(el.dataset.id)); break;
 
-    // NOVO: onboarding
-    case 'onb-next':  onbNext(); break;
-    case 'onb-back':  onbBack(); break;
-    case 'onb-skip':  onbSkip(); break;
+    case 'onb-next': onbNext(); break;
+    case 'onb-back': onbBack(); break;
+    case 'onb-skip': onbSkip(); break;
     case 'onb-skill':
       el.classList.toggle('on');
       state.ui.onbData.skills = [...$$('#onb-skills .chip.on')].map(b=>b.dataset.skill);
-      render(); // re-renderiza para atualizar a prévia do top 3
+      render();
       break;
 
     case 'analise': {
       const idea = state.ideias.find(i=>i.id===Number(el.dataset.id));
-      const novo = idea.status==='EM_ANALISE' ? 'NOVA' : 'EM_ANALISE';
-      try{ await mudarStatusIdeia(idea.id, novo); render(); toast(novo==='EM_ANALISE'?'Marcada como em análise.':'Voltou para o banco.'); }
+      const novo = idea.status==='EM_ANALISE'?'NOVA':'EM_ANALISE';
+      try{ await mudarStatusIdeia(idea.id,novo); render(); toast(novo==='EM_ANALISE'?'Marcada como em análise.':'Voltou para o banco.'); }
       catch(err){ toast(err.message,'err'); }
       break;
     }
@@ -1542,38 +1442,40 @@ document.addEventListener('click', async e => {
     case 'confirmar-descarte': {
       const id = Number(el.dataset.id);
       const motivo = ($('#desc-reason')?.value||'').trim();
-      if(!motivo){ toast('Escreva o motivo do descarte.','err'); return; }
-      try{ await mudarStatusIdeia(id, 'DESCARTADA', motivo); closeModal(); render(); toast('Ideia descartada e guardada no histórico.'); }
+      if(!motivo){ toast('Escreva o motivo.','err'); return; }
+      try{ await mudarStatusIdeia(id,'DESCARTADA',motivo); closeModal(); render(); toast('Ideia descartada.'); }
       catch(err){ toast(err.message,'err'); }
       break;
     }
 
-    case 'restaurar': {
-      try{ await mudarStatusIdeia(Number(el.dataset.id), 'NOVA'); render(); toast('Ideia trazida de volta ao banco.'); }
+    case 'restaurar':
+      try{ await mudarStatusIdeia(Number(el.dataset.id),'NOVA'); render(); toast('Ideia restaurada.'); }
       catch(err){ toast(err.message,'err'); }
       break;
-    }
 
-    case 'toggle-plan': state.ui.planOpen[Number(el.dataset.id)] = !state.ui.planOpen[Number(el.dataset.id)]; render(); break;
+    case 'toggle-plan': {
+      const id = Number(el.dataset.id);
+      state.ui.planOpen[id] = !state.ui.planOpen[id];
+      render();
+      break;
+    }
 
     case 'toggle-step': {
       const eid = Number(el.dataset.step);
       const et = Object.values(state.etapas).flat().find(x=>x.id===eid);
       if(!et) return;
-      try{ await atualizarEtapa(eid, { concluida: !et.concluida }); render(); if(!et.concluida) toast('Etapa concluída!'); }
+      try{ await atualizarEtapa(eid,{concluida:!et.concluida}); render(); if(!et.concluida) toast('Etapa concluída!'); }
       catch(err){ toast(err.message,'err'); }
       break;
     }
-
     case 'toggle-rem': {
       const eid = Number(el.dataset.step);
       const et = Object.values(state.etapas).flat().find(x=>x.id===eid);
       if(!et) return;
-      try{ await atualizarEtapa(eid, { lembrete: !et.lembrete }); render(); toast(!et.lembrete?'Lembrete ligado.':'Lembrete desligado.'); }
+      try{ await atualizarEtapa(eid,{lembrete:!et.lembrete}); render(); toast(!et.lembrete?'Lembrete ligado.':'Lembrete desligado.'); }
       catch(err){ toast(err.message,'err'); }
       break;
     }
-
     case 'del-step': {
       const eid = Number(el.dataset.step);
       if(!confirm('Remover esta etapa?')) return;
@@ -1581,13 +1483,12 @@ document.addEventListener('click', async e => {
       catch(err){ toast(err.message,'err'); }
       break;
     }
-
     case 'add-step': {
       const pid = Number(el.dataset.plan);
       const titulo = $('#new-step-'+pid)?.value.trim();
       const prazo = $('#new-due-'+pid)?.value || null;
-      if(!titulo){ toast('Escreva o nome da etapa.','err'); return; }
-      try{ await adicionarEtapa(pid, titulo, prazo); render(); toast('Etapa adicionada.'); }
+      if(!titulo){ toast('Escreva o nome.','err'); return; }
+      try{ await adicionarEtapa(pid,titulo,prazo); render(); toast('Etapa adicionada.'); }
       catch(err){ toast(err.message,'err'); }
       break;
     }
@@ -1596,21 +1497,31 @@ document.addEventListener('click', async e => {
     case 'reativar':
     case 'concluir': {
       const pid = Number(el.dataset.plan);
-      const novo = a==='pausar' ? 'PAUSADO' : a==='reativar' ? 'ATIVO' : 'CONCLUIDO';
-      try{ await mudarStatusPlano(pid, novo); render(); toast(novo==='PAUSADO'?'Plano pausado.':novo==='ATIVO'?'Plano retomado.':'🏁 Plano concluído!'); }
+      const novo = a==='pausar'?'PAUSADO':a==='reativar'?'ATIVO':'CONCLUIDO';
+      try{ await mudarStatusPlano(pid,novo); render(); toast(novo==='PAUSADO'?'Pausado.':novo==='ATIVO'?'Retomado.':'🏁 Concluído!'); }
       catch(err){ toast(err.message,'err'); }
       break;
     }
 
     case 'del-plan': {
       const pid = Number(el.dataset.plan);
-      if(!confirm('Excluir este plano? A ideia volta para o banco.')) return;
+      if(!confirm('Excluir este plano?')) return;
       try{ await excluirPlano(pid); render(); toast('Plano excluído.'); }
       catch(err){ toast(err.message,'err'); }
       break;
     }
 
-    case 'toggle-skill': el.classList.toggle('on'); break;
+    case 'toggle-skill': {
+      // Cicla: 0 → 1 → 2 → 3 → 0
+      const cur = Number(el.dataset.level || 0);
+      const next = (cur + 1) % 4;
+      el.dataset.level = next;
+      el.className = 'chip lvl-' + next;
+      const display = el.dataset.skill.charAt(0).toUpperCase() + el.dataset.skill.slice(1);
+      const suffix = next===0?'':next===1?' · B':next===2?' · M':' · A';
+      el.textContent = display + suffix;
+      break;
+    }
 
     case 'add-skill': {
       const inp = $('#new-skill');
@@ -1619,30 +1530,40 @@ document.addEventListener('click', async e => {
       const key = v.toLowerCase();
       if([...$$('#p-skills .chip')].some(c=>c.dataset.skill===key)){ inp.value=''; return; }
       const btn = document.createElement('button');
-      btn.type='button'; btn.className='chip on'; btn.dataset.action='toggle-skill'; btn.dataset.skill=key;
-      btn.textContent = key + ' ✕';
+      btn.type='button'; btn.className='chip lvl-2'; btn.dataset.action='toggle-skill';
+      btn.dataset.skill = key; btn.dataset.level = '2';
+      btn.textContent = key + ' · M';
       $('#p-skills').appendChild(btn);
       inp.value = '';
       break;
     }
 
-    case 'reset-perfil': {
+    case 'reset-perfil':
       if(!confirm('Limpar todos os dados do perfil?')) return;
-      try{ await salvarPerfil({ investimento:'', horas_semana:'', habilidades:'', experiencia:'' }); render(); toast('Perfil limpo.'); }
+      try{ await salvarPerfil({investimento:'',horas_semana:'',habilidades:'',habilidades_nivel:{},experiencia:''}); render(); toast('Perfil limpo.'); }
       catch(err){ toast(err.message,'err'); }
       break;
-    }
 
     case 'salvar-perfil': {
-      const skills = [...$$('#p-skills .chip.on')].map(b=>b.dataset.skill).join(', ');
+      const skillsData = {};
+      const skillsList = [];
+      $$('#p-skills .chip[data-level]').forEach(chip => {
+        const lvl = Number(chip.dataset.level || 0);
+        if(lvl === 0) return;
+        const key = chip.dataset.skill;
+        skillsList.push(key);
+        skillsData[key] = lvl === 1 ? 'basico' : lvl === 2 ? 'intermediario' : 'avancado';
+      });
       try{
         await salvarPerfil({
           investimento: $('#p-invest').value,
           horas_semana: $('#p-hours').value,
-          habilidades: skills,
+          habilidades: skillsList.join(', '),
+          habilidades_nivel: skillsData,
           experiencia: $('#p-exp').value
         });
-        render(); toast('Perfil salvo.');
+        render();
+        toast('Perfil salvo.');
       } catch(err){ toast(err.message,'err'); }
       break;
     }
@@ -1658,7 +1579,7 @@ document.addEventListener('change', e => {
   else if(a==='f-sort'){ state.ui.sort = el.value; render(); }
   else if(a==='edit-due'){
     const eid = Number(el.dataset.step);
-    atualizarEtapa(eid, { prazo: el.value || null }).then(render).catch(err=>toast(err.message,'err'));
+    atualizarEtapa(eid,{prazo:el.value||null}).then(render).catch(err=>toast(err.message,'err'));
   }
 });
 
@@ -1676,31 +1597,23 @@ document.addEventListener('input', e => {
 
 document.addEventListener('keydown', e => {
   if(e.key === 'Escape') closeModal();
-  // Atalho: Enter no onboarding avança
-  if(e.key === 'Enter' && state.ui.onboarding){
-    const t = e.target.tagName;
-    if(t === 'INPUT') { e.preventDefault(); onbNext(); }
-  }
+  if(e.key === 'Enter' && state.ui.onboarding && e.target.tagName === 'INPUT'){ e.preventDefault(); onbNext(); }
 });
 
 /* =========================================================================
-   18. BOOT
+   BOOT
    ========================================================================= */
 async function startApp(){
-  // NOVO: mostra skeleton em vez do spinner central
   $('#boot').style.display = 'none';
   renderSkeleton();
-
   try{
     await loadAll();
     await seedSeVazio();
     await loadAll();
-
-    // NOVO: decide se mostra onboarding
     if(!onboardingDone()){
       state.ui.onboarding = true;
       state.ui.onbStep = 0;
-      state.ui.onbData = { investment: null, hours: null, skills: [], experience: '' };
+      state.ui.onbData = { investment:null, hours:null, skills:[], experience:'' };
     }
     render();
   } catch(err){
@@ -1708,7 +1621,6 @@ async function startApp(){
       <div style="font-size:34px;margin-bottom:8px">⚠️</div>
       <b style="color:#16202e">Não consegui carregar seus dados</b>
       <p style="margin-top:8px;font-size:13.5px;color:#68758a">${esc(err.message)}</p>
-      <p style="margin-top:8px;font-size:12px;color:#98a4b6">Verifique se o SQL do schema foi executado no Supabase e se as políticas RLS estão ativas.</p>
       <button style="margin-top:14px;padding:10px 16px;border-radius:10px;border:0;background:#eef2f8;cursor:pointer;font-weight:700" onclick="location.reload()">Tentar novamente</button>
     </div>`;
   }
